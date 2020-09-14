@@ -1,0 +1,18 @@
+.menu-nav{
+    background-color: orangered;
+    color: white;
+    font-weight: bold;
+}
+
+.icon-toggle{
+    background-image: url("../Assets/Icons/menu.png");
+    border: black 1px solid;
+}
+
+.slogan{
+    background-color: #80FF19;
+}
+
+.background-primary{
+    background-color: orangered;
+}
