@@ -1,9 +1,12 @@
-import React from "react"
+import React , {useState} from "react"
+import firebase from "firebase"
+import {loginWithGoogle, isLoggedIn} from "../Server/Firebase"
 
 export default function Menu(){
+
     return(
         <nav className="navbar navbar-expand-lg menu-nav navbar-light">
-            <a className="navbar-brand text-white" href="#">Aleja Puppies</a>
+            <a className="navbar-brand text-white" href="/">Aleja Puppies</a>
             <button className="navbar-toggler " type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu">
                 <span className="navbar-toggler-icon"></span>
             </button>
@@ -11,33 +14,37 @@ export default function Menu(){
             <div className="collapse navbar-collapse" id="menu">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item">
-                        <a className="nav-link text-white active" href="#">Home</a>
+                        <a className="nav-link text-white active" href="/">Home</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link text-white" href="#">Quienes somos</a>
+                        <a className="nav-link text-white" href="/#">Quienes somos</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link text-white" href="#">Contacto</a>
+                        <a className="nav-link text-white" href="/#">Contacto</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link text-white" href="#">Faqs</a>
+                        <a className="nav-link text-white" href="/#">Faqs</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li className="nav-item dropdown">
+                        <a className="nav-link dropdown-toggle text-light" href="/#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Mascotas
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Perros</a>
-                        <a class="dropdown-item" href="#">Gatos</a>
-                        <a class="dropdown-item" href="#">Roedores</a>
-                        <a class="dropdown-item" href="#">Peces</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Otro</a>
+                        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a className="dropdown-item" href="/#">Perros</a>
+                        <a className="dropdown-item" href="/#">Gatos</a>
+                        <a className="dropdown-item" href="/#">Roedores</a>
+                        <a className="dropdown-item" href="/#">Peces</a>
+                        <div className="dropdown-divider"></div>
+                        <a className="dropdown-item" href="/#">Otro</a>
                         </div>
                     </li>
 
                 </ul>
             </div>
+            <div>
+                <a className = "btn btn-white float-right text-line" onClick={loginWithGoogle}>Ingresar</a>
+            </div>
+
         </nav>
     )
 }
