@@ -1,4 +1,4 @@
-import express from "express"
+//No se que carajos hace este script pero hace que funcione la pagina en heroku
 const express = require('express');
 const path = require('path');
 const app = express();
