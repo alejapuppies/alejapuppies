@@ -47,3 +47,11 @@ export function isLoggedIn(){
     }
   });
 }
+
+export function signOut(){
+  firebase.auth().signOut().then(function() {
+    console.log("usuario cerro sesion");
+  }).catch(function(error) {
+    console.log(error);
+  });
+}

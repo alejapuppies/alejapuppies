@@ -1,6 +1,5 @@
 import React , {useState} from "react"
-import firebase from "firebase"
-import {loginWithGoogle, isLoggedIn} from "../Server/Firebase"
+import DataLogin from "../Components/DataLogin"
 
 export default function Menu(){
 
@@ -41,10 +40,7 @@ export default function Menu(){
 
                 </ul>
             </div>
-            <div>
-                <a className = "btn btn-white float-right text-line" onClick={loginWithGoogle}>Ingresar</a>
-            </div>
-
+            <DataLogin/>
         </nav>
     )
 }
