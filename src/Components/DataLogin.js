@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import firebase from "firebase"
-import {loginWithGoogle, signOut} from "../Server/Firebase"
+import firebase from "firebase";
+import {loginWithGoogle, signOut} from "../Server/Firebase";
 
 export default function DataLogin(){
     const [user, setUser] = useState("");
@@ -10,7 +10,7 @@ export default function DataLogin(){
           setUser(user);
         }
         else{
-            setUser(null);
+          setUser(null);
         }
     });
 
@@ -20,7 +20,7 @@ export default function DataLogin(){
                 {user.displayName}
             </button>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a className="dropdown-item" href="#">Perfil</a>
+                <a className="dropdown-item" href="/profile">Perfil</a>
                 <a className="dropdown-item" href="#">Consultas</a>
                 <a className="dropdown-item" onClick={signOut} href="">Cerrar Sesion</a>
             </div>

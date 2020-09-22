@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from "../src/Screens/Home"
 import Menu from "../src/Components/Menu"
-import Login from "../src/Screens/Login"
+import Profile from "../src/Screens/Profile"
 import Footer from "../src/Components/Footer"
 import {BrowserRouter, Switch, Route} from "react-router-dom"
 import './App.css';
@@ -14,7 +14,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path = "/" component = {Home}/>
-          <Route exact path = "/login" component = {Login}/>
+          <Route exact path = "/profile" component = {Profile}/>
         </Switch>
       </BrowserRouter>
 
