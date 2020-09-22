@@ -1,4 +1,5 @@
 import firebase from "firebase"
+import React from "react";
 
 var firebaseConfig = {
     apiKey: "AIzaSyAbr5STLmKcyJI3-pvjzZUlDmsMfMzMo4A",
@@ -37,18 +38,6 @@ export function loginWithGoogle(){
       });
 }
 
-export function isLoggedIn(){
-
-  firebase.auth().onAuthStateChanged(function(user){
-    if(user){
-      return true;
-    }
-    else{
-      return false;
-    }
-  });
-}
-
 export function signOut(){
   firebase.auth().signOut().then(function() {
     console.log("usuario cerro sesion");
@@ -59,7 +48,6 @@ export function signOut(){
 
 //Database Realtime
 export const writeUserData = (id, name, photoUrl, email, phone)=> {
-  console.log("Escribiendo datos..." + id + name);
   firebase.database().ref("/").child("users/").child(name + "-" + id).set({
     id:id,
     name: name,

@@ -1,13 +1,13 @@
 import React, { useState } from "react"
 import firebase from "firebase";
-import {loginWithGoogle, signOut} from "../Server/Firebase";
+import {loginWithGoogle, signOut, isLoggedIn} from "../Server/Firebase";
 
 export default function DataLogin(){
     const [user, setUser] = useState("");
 
-    firebase.auth().onAuthStateChanged(function(user){
-        if(user){
-          setUser(user);
+    firebase.auth().onAuthStateChanged(userAuth =>{
+        if(userAuth){
+          setUser(userAuth);
         }
         else{
           setUser(null);
