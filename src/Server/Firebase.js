@@ -14,6 +14,7 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+//Auth System
 var provider = new firebase.auth.GoogleAuthProvider();
 provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
 firebase.auth().useDeviceLanguage();
@@ -21,11 +22,9 @@ firebase.auth().useDeviceLanguage();
 export function loginWithGoogle(){
 
     firebase.auth().signInWithPopup(provider).then(function(result) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
         var token = result.credential.accessToken;
-
-        // The signed-in user info.
         var user = result.user;
+        writeUserData(user.uid, user.displayName, user.photoURL, user.email, user.phoneNumber);
 
       }).catch(function(error) {
         // Handle Errors here.
@@ -56,4 +55,16 @@ export function signOut(){
   }).catch(function(error) {
     console.log(error);
   });
+}
+
+//Database Realtime
+export const writeUserData = (id, name, photoUrl, email, phone)=> {
+  console.log("Escribiendo datos..." + id + name);
+  firebase.database().ref("/").child("users/").child(name + "-" + id).set({
+    id:id,
+    name: name,
+    photoUrl:photoUrl,
+    email: email,
+    phone:phone
+  })
 }
