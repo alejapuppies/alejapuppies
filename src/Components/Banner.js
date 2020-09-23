@@ -14,13 +14,13 @@ export default function Banner(){
                 </ol>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                    <img className="d-block w-100 fluid-img img-responsive" src={BannerImg} alt="First slide" style={{height:"500px"}}/>
+                    <img className="img-fluid" src={BannerImg} alt="First slide" style={{height:"500px"}}/>
                     </div>
                     <div className="carousel-item">
-                    <img className="d-block w-100 fluid-img img-responsive" src={BannerImg2} alt="Second slide" style={{height:"500px"}}/>
+                    <img className="d-block w-100 img-fluid" src={BannerImg2} alt="Second slide" style={{height:"500px"}}/>
                     </div>
                     <div className="carousel-item">
-                    <img className="d-block w-100 fluid-img img-responsive" src={BannerImg3} alt="Third slide" style={{height:"500px"}}/>
+                    <img className="d-block w-100 img-fluid" src={BannerImg3} alt="Third slide" style={{height:"500px"}}/>
                     </div>
                 </div>
                 <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

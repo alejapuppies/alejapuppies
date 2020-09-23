@@ -1,5 +1,6 @@
 import React from "react"
-import UserInfo from "../Components/UserInfo"
+import UserProfile from "../Components/UserProfile"
+import AdminProfile from "../Components/AdminProfile"
 import firebase from "firebase";
 import {userContext} from "../Components/userContext"
 import { Route, Switch } from "react-router-dom";
@@ -41,14 +42,12 @@ export default class Profile extends React.Component{
     render(){
         if(this.state.loggedIn && this.state.admin){
             return<div>
-                <h1>admin</h1>
-                <UserInfo user = {this.state.user}/>
+                <AdminProfile user = {this.state.user}/>
             </div>
         }
         else if(this.state.loggedIn && !this.state.admin){
             return<div>
-                <h1>Usuario</h1>
-                <UserInfo user = {this.state.user}/>
+                <UserProfile user = {this.state.user}/>
             </div>
         }
         else if(!this.state.loggedIn || this.state.user == null){
