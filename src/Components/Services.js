@@ -10,8 +10,8 @@ export default class Services extends React.Component{
         dataServices:[
             {
                 "id":1,
-                "title":"Peluqueria",
-                "description":"El mejor estilo para tu canino despues de su baño",
+                "title":"Servicio 1",
+                "description":"Descripcion servicio 1 - Lorem ipsum",
                 "img": doggy2
             },
             {
@@ -22,8 +22,8 @@ export default class Services extends React.Component{
             },
             {
                 "id":3,
-                "title":"Guarderia",
-                "description":"Te cuidamos tu mascota mientras trabajas",
+                "title":"Servicio 3",
+                "description":"Descripcion servicio 3 - Lorem ipsum",
                 "img": doggy1
             }
         ]

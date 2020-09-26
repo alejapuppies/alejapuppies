@@ -31,10 +31,6 @@ export default function Menu(){
                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a className="dropdown-item" href="/#">Perros</a>
                         <a className="dropdown-item" href="/#">Gatos</a>
-                        <a className="dropdown-item" href="/#">Roedores</a>
-                        <a className="dropdown-item" href="/#">Peces</a>
-                        <div className="dropdown-divider"></div>
-                        <a className="dropdown-item" href="/#">Otro</a>
                         </div>
                     </li>
 
