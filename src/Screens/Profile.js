@@ -50,7 +50,16 @@ export default class Profile extends React.Component{
                 <UserProfile user = {this.state.user}/>
             </div>
         }
-        else if(!this.state.loggedIn || this.state.user == null){
+        else if(!this.state.loggedIn){
+            return<div>
+                <div class="mt-5 spinner-border text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <h1 className="text-black">Verifica inicio de sesion</h1>
+            </div>
+
+        }
+        else if(this.state.user == null){
             return<div>
                 <Switch>
                     <Route exact path="/profile" component={Home}/>
