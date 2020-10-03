@@ -156,8 +156,44 @@ export default function ExamenClinico(){
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Hallazgos anormales:</label>
                     <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Hallazgos anormales"/>
                 </div>
-
             </div>
+
+            {/* Plan Dx*/}
+            <h4 className="text-black mt-5 mb-5">Plan DX</h4>
+            <div className="row w-100">
+                <div className="col-12 col-sm-6 col-xs-6">
+                    <div class="form-check d-flex flex-column">
+                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Cuadro Hematico</label>
+                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Quimica sanguinea</label>
+                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Coprologico</label>
+                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Corproscopico</label>
+                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Parcial de orina</label>
+                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Radiografia</label>
+                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Ecografia</label>
+                    </div>
+                </div>
+
+                <div className="col-12 col-sm-6 col-xs-6">
+                    <div class="form-check d-flex flex-column">
+                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Citologia</label>
+                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Raspado de piel</label>
+                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Biopsia</label>
+                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Serologia</label>
+                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>PCR</label>
+                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Perfil de tiroideo</label>
+                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Test de supresion con dexametasona</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-check mx-auto clearfix">
+                    <label class="form-check-label text-black col-12"><input type="checkbox" class="form-check-input"/>Otros</label>
+                    <textarea placeholder="Otros"/>
+                </div>
+                <div className="mx-auto">
+                    <h6 className="text-black">Comentarios</h6>
+                    <textarea placeholder="Comentarios..."/>
+                </div>
 
             <h4 className="mt-5 text-black">Fecha control</h4>
             <input type="date" className="form-control w-50 mx-auto" placeholder="Fecha control" required/>
