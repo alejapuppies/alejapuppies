@@ -2,7 +2,7 @@ import React from "react"
 
 export default function(){
     return(
-        <div className="mt-5 bg-black mx-auto pt-3">
+        <div className="bg-black mx-auto pt-3">
                 <footer className="footer">
                     <div className="row w-100 mx-auto">
                         <div className="col-sm-4 col-custom">

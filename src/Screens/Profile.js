@@ -52,8 +52,8 @@ export default class Profile extends React.Component{
         }
         else if(!this.state.loggedIn){
             return<div>
-                <div class="mt-5 spinner-border text-primary" role="status">
-                    <span class="sr-only">Loading...</span>
+                <div className="mt-5 spinner-border text-primary" role="status">
+                    <span className="sr-only">Loading...</span>
                 </div>
                 <h1 className="text-black">Verifica inicio de sesion</h1>
             </div>

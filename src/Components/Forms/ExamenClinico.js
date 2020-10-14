@@ -3,17 +3,18 @@ import "../../App.css"
 
 export default function ExamenClinico(){
     return(
-        <form className="container mt-5 mx-auto border-black form-horizontal">
+        <form className="fluid-container p-3 mx-auto border-black form-horizontal">
             {/*DATOS DEL USUARIO*/}
             <h2 className="mt-5 text-black text-center">Examen Clinico</h2>
             {/*Variables fisiologicas*/}
             <div className="mx-auto">
                 <h4 className="text-black mt-5 mb-5">Variables fisiologicas</h4>
-                <div className="row w-100 mx-auto">
+                <div className="row w-100 mx-auto col-12">
                     {/*mucosas*/}
-                    <div className="row w-50 mx-auto">
-                        <h6 className="text-black mx-auto text-center mb-3">Mucosas</h6>
+                    <div className="row col-6 mx-auto">
                         <div className="form-group row w-100 mx-auto">
+                            <strong className="text-black col-md-6">Mucosas:</strong>
+                            <input className="form-control col-md-6" placeholder="mucosas"/>
                             <label className="text-black col-md-6">TLLC:</label>
                             <input className="form-control col-md-6" placeholder="TLLC" id="tllc"/>
                             <label className="text-black col-md-6">FC:</label>
@@ -25,16 +26,19 @@ export default function ExamenClinico(){
                         </div>
                     </div>
 
-                    <div className="row mx-auto w-50">
+                    <div className="row mx-auto col-6">
                         {/*Linfonodos*/}
-                        <h6 className="text-black text-center mx-auto mb-3">Linfonodos</h6>
                         <div className="form-group row w-100 mx-auto">
+                            <strong className="text-black col-md-6">Linfonodos:</strong>
+                            <input className="form-control col-md-6" placeholder="Linfonodos"/>
                             <label className="text-black col-md-6">Pulso:</label>
                             <input className="form-control col-md-6" placeholder="Pulso" id="pulso"/>
                             <label className="text-black col-md-6">CC:</label>
                             <input className="form-control col-md-6" placeholder="CC" id="cc"/>
                         </div>
                     </div>
+                    <label className="mt-5 text-black col-md-6">Temperamento:</label>
+                    <input className=" mt-5 form-control col-md-6" placeholder="docil"/>
                 </div>
             </div>
 
@@ -162,41 +166,138 @@ export default function ExamenClinico(){
             <h4 className="text-black mt-5 mb-5">Plan DX</h4>
             <div className="row w-100">
                 <div className="col-12 col-sm-6 col-xs-6">
-                    <div class="form-check d-flex flex-column">
-                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Cuadro Hematico</label>
-                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Quimica sanguinea</label>
-                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Coprologico</label>
-                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Corproscopico</label>
-                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Parcial de orina</label>
-                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Radiografia</label>
-                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Ecografia</label>
+                    <div className="form-check d-flex flex-column">
+                        <label className="form-check-label text-black"><input type="checkbox" className="form-check-input"/>Cuadro Hematico</label>
+                        <label className="form-check-label text-black"><input type="checkbox" className="form-check-input"/>Quimica sanguinea</label>
+                        <label className="form-check-label text-black"><input type="checkbox" className="form-check-input"/>Coprologico</label>
+                        <label className="form-check-label text-black"><input type="checkbox" className="form-check-input"/>Corproscopico</label>
+                        <label className="form-check-label text-black"><input type="checkbox" className="form-check-input"/>Parcial de orina</label>
+                        <label className="form-check-label text-black"><input type="checkbox" className="form-check-input"/>Radiografia</label>
+                        <label className="form-check-label text-black"><input type="checkbox" className="form-check-input"/>Ecografia</label>
                     </div>
                 </div>
 
                 <div className="col-12 col-sm-6 col-xs-6">
-                    <div class="form-check d-flex flex-column">
-                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Citologia</label>
-                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Raspado de piel</label>
-                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Biopsia</label>
-                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Serologia</label>
-                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>PCR</label>
-                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Perfil de tiroideo</label>
-                        <label class="form-check-label text-black"><input type="checkbox" class="form-check-input"/>Test de supresion con dexametasona</label>
+                    <div className="form-check d-flex flex-column">
+                        <label className="form-check-label text-black"><input type="checkbox" className="form-check-input"/>Citologia</label>
+                        <label className="form-check-label text-black"><input type="checkbox" className="form-check-input"/>Raspado de piel</label>
+                        <label className="form-check-label text-black"><input type="checkbox" className="form-check-input"/>Biopsia</label>
+                        <label className="form-check-label text-black"><input type="checkbox" className="form-check-input"/>Serologia</label>
+                        <label className="form-check-label text-black"><input type="checkbox" className="form-check-input"/>PCR</label>
+                        <label className="form-check-label text-black"><input type="checkbox" className="form-check-input"/>Perfil de tiroideo</label>
+                        <label className="form-check-label text-black"><input type="checkbox" className="form-check-input"/>Test de supresion con dexametasona</label>
                     </div>
                 </div>
-            </div>
 
-            <div class="form-check mx-auto clearfix">
-                    <label class="form-check-label text-black col-12"><input type="checkbox" class="form-check-input"/>Otros</label>
-                    <textarea placeholder="Otros"/>
+                <div className="form-check mx-auto">
+                    <label className="form-check-label text-black col-12"><input type="checkbox" className="form-check-input"/>Otros</label>
+                    <textarea className="mx-auto" placeholder="Otros"/>
                 </div>
                 <div className="mx-auto">
                     <h6 className="text-black">Comentarios</h6>
-                    <textarea placeholder="Comentarios..."/>
+                    <textarea className="mx-auto" placeholder="Comentarios..."/>
                 </div>
+            </div>
 
-            <h4 className="mt-5 text-black">Fecha control</h4>
-            <input type="date" className="form-control w-50 mx-auto" placeholder="Fecha control" required/>
+            {/*Lista problemas*/}
+            <div className="table-responsive">
+                <div className="mx-auto row w-100 mt-5">
+                    <div className="col-12 col-sm-4 col-md-4">
+                        <strong className="form-check-label text-black col-12">Lista problemas</strong>
+                        <textarea placeholder="Type something..."></textarea>
+                    </div> 
+                    <div className="col-12 col-sm-4 col-md-4">
+                        <strong className="form-check-label text-black col-12">Lista Diferenciales</strong>
+                        <textarea placeholder="Type something..."></textarea>
+                    </div> 
+                    <div className="col-12 col-sm-4 col-md-4">
+                        <strong className="form-check-label text-black col-12">Lista maestra</strong>
+                        <textarea placeholder="Type something..."></textarea>
+                    </div> 
+                </div>
+            </div>
+
+            {/*Tratamiento*/}
+            <div className = "mx-auto mt-5">
+                <h4 className="text-black">Tratamiento</h4>
+                <div className="table-responsive">
+                    <table className="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Principio Activo</th>
+                            <th scope="col">Nombre comercial</th>
+                            <th scope="col">Objetivo terapeutico</th>
+                            <th scope="col">DB</th>
+                            <th scope="col">DA</th>
+                            <th scope="col">Frecuencia</th>
+                            <th scope="col">Duracion</th>
+                            <th scope="col">Via</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                        </tr>
+                        <tr>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                        </tr>
+                        <tr>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                        </tr>
+                        <tr>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" placeholder=""/></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+            </div>
+
+            {/*Recomendaciones*/}
+            <div className="mt-5 mx-auto row w-100">
+                <strong className="text-black col-12 col-sm-6 col-md-3">Recomendaciones:</strong>
+                <input className="mx-auto col-12 col-sm-6 col-md-9" placeholder="Recomendaciones"/>
+            </div>
+
+            {/*Pendientes*/}
+            <div className="mt-5 mx-auto row w-100">
+                <strong className="text-black col-12 col-sm-6 col-md-3">Pendientes:</strong>
+                <input className="mx-auto col-12 col-sm-6 col-md-9" placeholder="Pendientes"/>
+            </div>
+
+            {/*Fecha de control*/}
+            <div className="mt-5 mx-auto row w-100 mb-5">
+                <strong className="text-black col-12 col-sm-6 col-md-3">Fecha control</strong>
+                <input type="date" className="form-control mx-auto col-12 col-sm-6 col-md-9" placeholder="Fecha control" required/>
+            </div>
+
         </form>
     )
 }
