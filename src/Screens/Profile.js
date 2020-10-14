@@ -1,10 +1,8 @@
 import React from "react"
 import UserProfile from "../Components/UserProfile"
-import AdminProfile from "../Components/AdminProfile"
+import AdminProfile from "../Components/Admin/AdminProfile"
 import firebase from "firebase";
-import {userContext} from "../Components/userContext"
-import { Route, Switch } from "react-router-dom";
-import Home from "../Screens/Home"
+import { Redirect, Route, Switch } from "react-router-dom";
 
 export default class Profile extends React.Component{
 
@@ -55,15 +53,14 @@ export default class Profile extends React.Component{
                 <div className="mt-5 spinner-border text-primary" role="status">
                     <span className="sr-only">Loading...</span>
                 </div>
-                <h1 className="text-black">Verifica inicio de sesion</h1>
+                <h1 className="text-black">Cargando...</h1>
+                <a className="btn m-5 btn-sm btn-primary" href="/">Regresar</a>
             </div>
 
         }
         else if(this.state.user == null){
             return<div>
-                <Switch>
-                    <Route exact path="/profile" component={Home}/>
-                </Switch>
+                <Redirect to="/"/>
             </div>
         }
     }

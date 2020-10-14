@@ -40,6 +40,8 @@ export default function PrimeraConsulta(){
                 <div className="form-group row w-100 mx-auto">
                     <label className= "text-black col-sm-6 col-6 col-md-5">Tutor 1</label>
                     <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Jorge Perez" required/>
+                    <label className= "text-black col-sm-6 col-6 col-md-5">Cedula</label>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="identificacion" required/>
                     <label className= "text-black col-sm-6 col-6 col-md-5">Telefono</label>
                     <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="555-555-555-55" required/>
                     <label className= "text-black col-sm-6 col-6 col-md-5">Tutor 2</label>
