@@ -76,7 +76,7 @@ function FormManager(props){
     }
     else if(data == "add user"){
         return(
-            <AddUser data = {"add"}/>
+            <AddUser/>
         )
     }
     else{
