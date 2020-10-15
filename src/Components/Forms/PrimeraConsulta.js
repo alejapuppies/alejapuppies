@@ -40,7 +40,7 @@ export default function PrimeraConsulta(){
                 <div className="form-group row w-100 mx-auto">
                     <label className= "text-black col-sm-6 col-6 col-md-5">Tutor 1</label>
                     <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Jorge Perez" required/>
-                    <label className= "text-black col-sm-6 col-6 col-md-5">Cedula</label>
+                    <label type="number" className= "text-black col-sm-6 col-6 col-md-5">Cedula</label>
                     <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="identificacion" required/>
                     <label className= "text-black col-sm-6 col-6 col-md-5">Telefono</label>
                     <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="555-555-555-55" required/>
@@ -101,7 +101,10 @@ export default function PrimeraConsulta(){
                 <textarea className="mt-5 col-sm-6 mx-auto" type="text-area" placeholder="comentarios..."/>
             </div>
 
-            <ExamenClinico/>
+            {/*Examen clinico*/}
+            <div>
+                <ExamenClinico/>
+            </div>
 
             <button type="submit" className="mt-5 btn btn-large btn-info">Enviar</button>
         </form>

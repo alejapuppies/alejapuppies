@@ -15,41 +15,41 @@ export default function AdminProfile(props){
             <hr className="styled-hr"/>
             <div className = "row w-100 mx-auto">
                 {/*Usuarios*/}
-                <div class="dropdown m-1">
-                    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div className="dropdown m-1">
+                    <button className="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Usuarios
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <button class="dropdown-item"  onClick={()=> setDisplay("add user")}>Agregar usuario</button>
-                        <button class="dropdown-item"  onClick={()=> setDisplay("default")}>Buscar usuario</button>
-                        <button class="dropdown-item"  onClick={()=> setDisplay("default")}>Actualizar usuario</button>
-                        <button class="dropdown-item"  onClick={()=> setDisplay("default")}>Eliminar usuario</button>
+                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <button className="dropdown-item"  onClick={()=> setDisplay("add user")}>Agregar usuario</button>
+                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Buscar usuario</button>
+                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Actualizar usuario</button>
+                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Eliminar usuario</button>
                     </div>
                 </div>
 
                 {/*Consultas*/}
-                <div class="dropdown m-1">
-                    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div className="dropdown m-1">
+                    <button className="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Consultas
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <button class="dropdown-item"  onClick={()=> setDisplay("primera consulta")}>Primera consulta</button>
-                        <button class="dropdown-item"  onClick={()=> setDisplay("formula medica")}>Formula medica</button>
-                        <button class="dropdown-item"  onClick={()=> setDisplay("default")}>Consulta general</button>
-                        <button class="dropdown-item"  onClick={()=> setDisplay("default")}>Buscar consulta</button>
+                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <button className="dropdown-item"  onClick={()=> setDisplay("primera consulta")}>Primera consulta</button>
+                        <button className="dropdown-item"  onClick={()=> setDisplay("formula medica")}>Formula medica</button>
+                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Consulta general</button>
+                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Buscar consulta</button>
                     </div>
                 </div>
 
                 {/*Consultas*/}
-                <div class="dropdown m-1">
-                    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div className="dropdown m-1">
+                    <button className="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Gerencial
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <button class="dropdown-item"  onClick={()=> setDisplay("default")}>Agregar administrador</button>
-                        <button class="dropdown-item"  onClick={()=> setDisplay("default")}>Eliminar administrador</button>
-                        <button class="dropdown-item"  onClick={()=> setDisplay("default")}>Resumen economico</button>
-                        <button class="dropdown-item"  onClick={()=> setDisplay("default")}>Finanzas</button>
+                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Agregar administrador</button>
+                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Eliminar administrador</button>
+                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Resumen economico</button>
+                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Finanzas</button>
                     </div>
                 </div>
 
