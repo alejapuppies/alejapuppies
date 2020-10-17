@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react"
 import ProfilePictureDefault from "../../../Assets/Icons/profile.png"
 import "../../../App.css"
+import UserService from "../../Services/UserService";
 
 export default function AddUser(props){
     const fileHidenInput = useRef("");
@@ -44,6 +45,32 @@ export default function AddUser(props){
     {/*Es para simular el click en el input type="file" pero personalizado (como button)*/}
     const handleClick = e =>{
         fileHidenInput.current.click();
+    }
+
+    {/*Agregar el usuario*/}
+    const addUser = (e) =>{
+        e.preventDefault();
+        console.log(user);
+
+        let data = {
+            name:user.name,
+            idCard: user.idCard,
+            email: user.email,
+            tel: user.tel,
+            adress: user.adress,
+            job: user.job,
+            picture: user.picture
+        }
+
+        UserService.addUser(data)
+        .then(res => {
+            console.log("Usuario guardado");
+            setDone(true);
+        })
+        .catch(error =>{
+            setDone(false);
+            console.log(error);
+        })
     }
 
     return(
@@ -123,7 +150,7 @@ export default function AddUser(props){
 
                 {/*Terminar*/}
                 <div className="row w-100 mx-auto mt-5">
-                    <button className="m-1 mx-auto btn btn-sm btn-success col-12 col-sm-3 col-xs-3 col-md-3" type="submit" onClick={() => setDone(true)} data-toggle="modal" data-target="#exampleModal">Guardar</button>
+                    <button type="submit" className="m-1 mx-auto btn btn-sm btn-success col-12 col-sm-3 col-xs-3 col-md-3" onClick={(e) => addUser(e)} data-toggle="modal" data-target="#exampleModal">Guardar</button>
                     <button className="m-1 mx-auto btn btn-sm btn-danger col-12 col-sm-3 col-xs-3 col-md-3" type="reset" onClick={() => reset()}>Limpiar</button>
                 </div>
             </form>
@@ -142,7 +169,6 @@ export default function AddUser(props){
                         {done ? "El usuario ha sido guardado" : "Hubo un error"}
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-primary">Hecho</button>
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     </div>
                     </div>

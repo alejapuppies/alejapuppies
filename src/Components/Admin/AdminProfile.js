@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import PrimeraConsulta from "../Forms/PrimeraConsulta"
 import FormulaMedica from "../Forms/FormulaMedica"
 import AddUser from "./UsersManager/AddUser"
+import FindUser from "./UsersManager/FindUser";
 
 export default function AdminProfile(props){
     const {user} = props;
@@ -21,7 +22,7 @@ export default function AdminProfile(props){
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <button className="dropdown-item"  onClick={()=> setDisplay("add user")}>Agregar usuario</button>
-                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Buscar usuario</button>
+                        <button className="dropdown-item"  onClick={()=> setDisplay("find user")}>Buscar usuario</button>
                         <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Actualizar usuario</button>
                         <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Eliminar usuario</button>
                     </div>
@@ -62,7 +63,6 @@ export default function AdminProfile(props){
 }
 
 function FormManager(props){
-    console.log(props.data == "default");
     const data = props.data;
     if(data == "primera consulta"){
         return(
@@ -77,6 +77,11 @@ function FormManager(props){
     else if(data == "add user"){
         return(
             <AddUser/>
+        )
+    }
+    else if(data == "find user"){
+        return(
+            <FindUser/>
         )
     }
     else{
