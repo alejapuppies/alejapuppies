@@ -16,6 +16,14 @@ class UserService{
         })
     }
 
+    findUserById(idCard){
+        return axios.get(`${API_URL}/findUserById`,{
+            params:{
+                id: idCard
+            }
+        })
+    }
+
     addUser(data){
         return axios.post(`${API_URL}/addUser`, data);
     }
