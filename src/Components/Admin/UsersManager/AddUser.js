@@ -35,18 +35,13 @@ export default function AddUser(props){
         });
     }
 
+    {/*Añadir mascota validada*/}
     const addPet = (pet) =>{
         if(pet.name != "" && pet.breed != ""){
             setPets([...pets, pet]);
             setDone(true);
         }
-        console.log(pet);
     }
-
-    const showData = () =>{
-        console.log(pets);
-    }
-
     
     {/*Es para simular el click en el input type="file" pero personalizado (como button)*/}
     const handleClick = e =>{
@@ -55,25 +50,9 @@ export default function AddUser(props){
 
     const checkData = (e)=>{
         e.preventDefault();
-        if(user.name == "" || user.idCard == "" || user.tel == ""){
-            setDone(false);
-            setMsg("Llena los campos obligatorios (Nombre, Cedula, Telefono)");
-        }
-        else{
-            UserService.findUserById(user.idCard)
-            .then(res =>{
-                if(!res){
-                    addUser(e);
-                    setDone(true);      
-                }
-                else{
-                    setDone(false);
-                    setMsg("El numero de cedula ya esta registrado");
-                }
-            }).catch(error => {
-                console.log(error);
-            })
-        }
+        addUser(e);
+        setDone(true);  
+        
     }
 
 

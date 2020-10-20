@@ -14,15 +14,15 @@ export default function ExamenClinico(){
                     <div className="row col-6 mx-auto">
                         <div className="form-group row w-100 mx-auto">
                             <strong className="text-black col-md-6">Mucosas:</strong>
-                            <input className="form-control col-md-6" placeholder="mucosas"/>
+                            <input className="form-control col-md-6"/>
                             <label className="text-black col-md-6">TLLC:</label>
-                            <input className="form-control col-md-6" placeholder="TLLC" id="tllc"/>
+                            <input className="form-control col-md-6" id="tllc"/>
                             <label className="text-black col-md-6">FC:</label>
-                            <input className="form-control col-md-6" placeholder="FC" id="fc"/>
+                            <input className="form-control col-md-6" id="fc"/>
                             <label className="text-black col-md-6">FR:</label>
-                            <input className="form-control col-md-6" placeholder="FR" id="fr"/>
+                            <input className="form-control col-md-6" id="fr"/>
                             <label className="text-black col-md-6">T°:</label>
-                            <input className="form-control col-md-6" placeholder="T°" id="t"/>
+                            <input className="form-control col-md-6" id="t"/>
                         </div>
                     </div>
 
@@ -30,15 +30,15 @@ export default function ExamenClinico(){
                         {/*Linfonodos*/}
                         <div className="form-group row w-100 mx-auto">
                             <strong className="text-black col-md-6">Linfonodos:</strong>
-                            <input className="form-control col-md-6" placeholder="Linfonodos"/>
+                            <input className="form-control col-md-6"/>
                             <label className="text-black col-md-6">Pulso:</label>
-                            <input className="form-control col-md-6" placeholder="Pulso" id="pulso"/>
+                            <input className="form-control col-md-6" id="pulso"/>
                             <label className="text-black col-md-6">CC:</label>
-                            <input className="form-control col-md-6" placeholder="CC" id="cc"/>
+                            <input className="form-control col-md-6" id="cc"/>
                         </div>
                     </div>
                     <label className="mt-5 text-black col-md-6">Temperamento:</label>
-                    <input className=" mt-5 form-control col-md-6" placeholder="docil"/>
+                    <input className=" mt-5 form-control col-md-6"/>
                 </div>
             </div>
 
@@ -47,118 +47,118 @@ export default function ExamenClinico(){
                 <h4 className="text-black mb-5">Examen por sistemas</h4>
                 <div className="form-group row w-100 mx-auto">
                     <strong className="text-black col-sm-6 col-6 col-md-5">Ojos:</strong>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="status" id="in1"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " id="in1"/>
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Hallazgos anormales:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7  mx-right" placeholder="Hallazgos anormales" id="in2"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7  mx-right" id="in2"/>
                 </div>
 
                 <div className="form-group row w-100 mx-auto">
                     <strong className="text-black col-sm-6 col-6 col-md-5 ">Oidos:</strong>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="status" id="in1"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " id="in1"/>
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Hallazgos anormales:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Hallazgos anormales" id="in2"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " id="in2"/>
                 </div> 
 
                 <div className="form-group row w-100 mx-auto">
                     <strong className="text-black col-sm-6 col-6 col-md-5  strong">Sistema Respiratorio</strong>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="status" id="in1"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " id="in1"/>
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Nariz:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Nariz" id="in2"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 "  id="in2"/>
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Patron Respiratorio:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Patron Respiratorio" id="in3"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 "  id="in3"/>
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Campo Pulmonar:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Campo Pulmonar" id="in4"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " id="in4"/>
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Signos:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Signos" id="in5"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 "  id="in5"/>
                 </div> 
 
                 <div className="form-group row w-100 mx-auto">
                     <strong className="text-black col-sm-6 col-6 col-md-5  strong">Sistema Digestivo</strong>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="status"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Cavidad oral:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Nariz"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Apetito:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Patron Respiratorio"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Consumo de agua:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Campo Pulmonar"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Defecacion:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Defecacion"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Signos:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Signos"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                 </div>
 
                 <div className="form-group row w-100 mx-auto">
                     <strong className="text-black col-sm-6 col-6 col-md-5  strong">Sistema Tegumentario</strong>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="status"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Glandulas mamarias:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Glandulas mamarias"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Hallazgos anormales:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Hallazgos anormales"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Ectoparasitos:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Extoparasitos"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 "/>
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Prurito:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Prurito"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                 </div>
 
                 <div className="form-group row w-100 mx-auto">
                     <strong className="text-black col-sm-6 col-6 col-md-5  strong">Sistema Cardiovascular</strong>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="status"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Hallazgos anormales:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Hallazgos anormales"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                 </div>
 
                 <div className="form-group row w-100 mx-auto">
                     <strong className="text-black col-sm-6 col-6 col-md-5  strong">Sistema Muscoloesqueletico</strong>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="status"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Claudicacion:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Claudicacion"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Masa muscular:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Masa muscular"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 "/>
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Hallazgos anormales:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Hallazgos anormales"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                 </div>
 
                 <div className="form-group row w-100 mx-auto">
                     <strong className="text-black col-sm-6 col-6 col-md-5  strong">Sistema Nervioso</strong>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="status"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Nivel de consciencia:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Nivel de consciencia"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 "/>
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Actitud y postura:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Actitud y postura"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Marcha:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Marcha"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Acomodacion propioceptiva:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Acomodacion"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Dolor:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Dolor"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Tono muscular:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Tono muscular"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                 </div>
 
                 <div className="form-group row w-100 mx-auto">
                     <strong className="text-black col-sm-6 col-6 col-md-5  strong">Sistema Urinario</strong>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="status"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Miccion:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Claudicacion"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Hallazgos anormales:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Hallazgos anormales"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                 </div>
 
                 <div className="form-group row w-100 mx-auto">
                     <strong className="text-black col-sm-6 col-6 col-md-5  strong">Sistema Reproductivo</strong>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="status"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Vulva/Pene:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Vulva/pene"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Escroto y testiculos:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Escroto y testiculos"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Ultimo celo:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Ultimo celo"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Montas:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Montas"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Partos y #crias:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Partos y crias"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                     <label className="text-black col-sm-6 col-6 col-md-5 ">Hallazgos anormales:</label>
-                    <input className="form-control col-sm-6 col-6 col-md-7 " placeholder="Hallazgos anormales"/>
+                    <input className="form-control col-sm-6 col-6 col-md-7 " />
                 </div>
             </div>
 
@@ -191,11 +191,11 @@ export default function ExamenClinico(){
 
                 <div className="form-check mx-auto">
                     <label className="form-check-label text-black col-12"><input type="checkbox" className="form-check-input"/>Otros</label>
-                    <textarea className="mx-auto" placeholder="Otros"/>
+                    <textarea className="mx-auto" />
                 </div>
                 <div className="mx-auto">
                     <h6 className="text-black">Comentarios</h6>
-                    <textarea className="mx-auto" placeholder="Comentarios..."/>
+                    <textarea className="mx-auto"/>
                 </div>
             </div>
 
@@ -204,15 +204,15 @@ export default function ExamenClinico(){
                 <div className="mx-auto row w-100 mt-5">
                     <div className="col-12 col-sm-4 col-md-4">
                         <strong className="form-check-label text-black col-12">Lista problemas</strong>
-                        <textarea placeholder="Type something..."></textarea>
+                        <textarea ></textarea>
                     </div> 
                     <div className="col-12 col-sm-4 col-md-4">
                         <strong className="form-check-label text-black col-12">Lista Diferenciales</strong>
-                        <textarea placeholder="Type something..."></textarea>
+                        <textarea ></textarea>
                     </div> 
                     <div className="col-12 col-sm-4 col-md-4">
                         <strong className="form-check-label text-black col-12">Lista maestra</strong>
-                        <textarea placeholder="Type something..."></textarea>
+                        <textarea></textarea>
                     </div> 
                 </div>
             </div>
@@ -236,44 +236,44 @@ export default function ExamenClinico(){
                         </thead>
                         <tbody>
                         <tr>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
                         </tr>
                         <tr>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
                         </tr>
                         <tr>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
                         </tr>
                         <tr>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
-                            <td><input className="mx-auto" placeholder=""/></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
+                            <td><input className="mx-auto" /></td>
                         </tr>
                         </tbody>
                     </table>
@@ -283,19 +283,19 @@ export default function ExamenClinico(){
             {/*Recomendaciones*/}
             <div className="mt-5 mx-auto row w-100">
                 <strong className="text-black col-12 col-sm-6 col-md-3">Recomendaciones:</strong>
-                <input className="mx-auto col-12 col-sm-6 col-md-9" placeholder="Recomendaciones"/>
+                <input className="mx-auto col-12 col-sm-6 col-md-9"/>
             </div>
 
             {/*Pendientes*/}
             <div className="mt-5 mx-auto row w-100">
                 <strong className="text-black col-12 col-sm-6 col-md-3">Pendientes:</strong>
-                <input className="mx-auto col-12 col-sm-6 col-md-9" placeholder="Pendientes"/>
+                <input className="mx-auto col-12 col-sm-6 col-md-9"/>
             </div>
 
             {/*Fecha de control*/}
             <div className="mt-5 mx-auto row w-100 mb-5">
                 <strong className="text-black col-12 col-sm-6 col-md-3">Fecha control</strong>
-                <input type="date" className="form-control mx-auto col-12 col-sm-6 col-md-9" placeholder="Fecha control" required/>
+                <input type="date" className="form-control mx-auto col-12 col-sm-6 col-md-9" required/>
             </div>
 
         </form>
