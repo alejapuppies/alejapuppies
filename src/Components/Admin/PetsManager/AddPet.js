@@ -35,27 +35,27 @@ export default function AddPet(props){
     
     if(props.visible){
             return(
-                <div className="border-black p-3">
+                <div className="p-3">
                     <h4 className="mb-5 mt-3 text-black">Mascota</h4>
                     <div className="form-group row ww-100 mx-auto">
                         <label className= "text-black col-sm-6 col-6 col-md-5">Nombre</label>
-                        <input name="name" value={pet.petName} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " placeholder="Lucas" required/>
+                        <input name="name" value={pet.petName} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " required/>
                         <label className= "text-black col-sm-6 col-6 col-md-5">Especie</label>
-                        <input name="kind" value={pet.kind} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " placeholder="Felino"/>
+                        <input name="kind" value={pet.kind} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 "/>
                         <label className= "text-black col-sm-6 col-6 col-md-5">Raza</label>
-                        <input name="breed" value={pet.breed} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " placeholder="Criollo"/>
+                        <input name="breed" value={pet.breed} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 "/>
                         <label className= "text-black col-sm-6 col-6 col-md-5">Color</label>
-                        <input name="color" value={pet.color} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " placeholder="Negro" />
+                        <input name="color" value={pet.color} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " />
                         <label className= "text-black col-sm-6 col-6 col-md-5">Tamaño</label>
-                        <input name="size" value={pet.size} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " placeholder="Grande" />
+                        <input name="size" value={pet.size} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 "  />
                         <label className= "text-black col-sm-6 col-6 col-md-5">Edad</label>
-                        <input name="age" value={pet.age} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " placeholder="3 meses" />
+                        <input name="age" value={pet.age} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 "  />
                         <label className= "text-black col-sm-6 col-6 col-md-5">Sexo</label>
-                        <input name="gender" value={pet.gender} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " placeholder="macho/hembra" />
+                        <input name="gender" value={pet.gender} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 "/>
                         <label className= "text-black col-sm-6 col-6 col-md-5">Estado Reproductivo</label>
-                        <input name="reproductiveStatus" value={pet.reproductiveStatus} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " placeholder="Operado" />
+                        <input name="reproductiveStatus" value={pet.reproductiveStatus} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " />
                         <label className= "text-black col-sm-6 col-6 col-md-5">Peso</label>
-                        <input name="weigth" value={pet.weigth} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " placeholder="25kg"/>
+                        <input name="weigth" value={pet.weigth} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " />
                     </div>
                     <button type="submit" className="m-1 mx-auto btn rounded-pill btn-sm btn-info col-12 col-sm-2 col-xs-2 col-md-2" onClick={(e) => add(e)}  data-toggle="modal" data-target="#exampleModal">Agregar</button>
 

@@ -4,7 +4,7 @@ import "../../../App.css"
 import UserService from "../../Services/UserService";
 import AddPet from "../PetsManager/AddPet";
 
-export default function AddUser(props){
+export default function AddUser(){
     const fileHidenInput = useRef("");
     const [done, setDone] = useState(false);
     const [msg, setMsg] = useState("Operacion completada");
@@ -96,7 +96,7 @@ export default function AddUser(props){
                     </div>
                     <div className="container col-12 mx-auto">
                         <button className="m-1 btn rounded-pill btn-success btn-sm mx-auto" onClick={handleClick}>cambiar foto</button>
-                        <input type="file" className="d-none" onChange={handleImg} placeholder="Foto" ref={fileHidenInput}/>
+                        <input type="file" className="d-none" onChange={handleImg} ref={fileHidenInput}/>
                     </div>
                 </div>
 
@@ -108,28 +108,28 @@ export default function AddUser(props){
                         </div>
                         <div className="container col-12 mx-auto">
                             <button className="m-1 rounded-pill btn btn-primary btn-sm mx-auto" onClick={handleClick}>Elegir foto</button>
-                            <input type="file" className="mx-auto center btn btn-primay d-none" onChange={handleImg} placeholder="Foto" ref={fileHidenInput}/>
+                            <input type="file" className="mx-auto center btn btn-primay d-none" onChange={handleImg} ref={fileHidenInput}/>
                         </div>
                     </div>
             )}
 
-            <form>
+            <div>
                 {/*DATOS user*/}
                 <div className=" p-3">
                     <h4 className="mt-5 text-black">Tutor</h4>
                     <div className="form-group row w-100 mx-auto">
                         <label className= "text-black col-sm-6 col-6 col-md-5">Nombre</label>
-                        <input type="text" name="name" value={user.name || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)} placeholder="Jorge Perez" required/>
+                        <input type="text" name="name" value={user.name || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)} required/>
                         <label type="number" className= "text-black col-sm-6 col-6 col-md-5">Cedula</label>
-                        <input name="idCard" value={user.idCard || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)} placeholder="identificacion" required/>
+                        <input name="idCard" value={user.idCard || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)} required/>
                         <label className= "text-black col-sm-6 col-6 col-md-5">Telefono</label>
-                        <input name="tel" value={user.tel || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)} placeholder="555-555-555-55" required/>
+                        <input name="tel" value={user.tel || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)}required/>
                         <label className= "text-black col-sm-6 col-6 col-md-5">adress</label>
-                        <input name="adress" value={user.adress || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)} placeholder="Bogota, Usaquen"/>
+                        <input name="adress" value={user.adress || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)} />
                         <label className= "text-black col-sm-6 col-6 col-md-5">Correo</label>
-                        <input name="email" value={user.email || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)} placeholder="jorge.perez@gmail.com"/>
+                        <input name="email" value={user.email || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)} />
                         <label className= "text-black col-sm-6 col-6 col-md-5">Ocupacion</label>
-                        <input name="job" value={user.job || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)} placeholder="Ingeniero"/>
+                        <input name="job" value={user.job || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)}/>
                     </div>
 
                     
@@ -162,7 +162,7 @@ export default function AddUser(props){
                     <button type="submit" className="m-1 mx-auto btn btn-sm btn-success col-12 col-sm-3 col-xs-3 col-md-3" onClick={(e) => checkData(e)} data-toggle="modal" data-target="#exampleModal">Guardar</button>
                     <button className="m-1 mx-auto btn btn-sm btn-danger col-12 col-sm-3 col-xs-3 col-md-3" type="reset" onClick={() => reset()}>Limpiar</button>
                 </div>
-            </form>
+            </div>
 
             {/*Modal para informar el estado de hacer push en database*/}
             <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -5,6 +5,7 @@ import Profile from "../src/Screens/Profile"
 import Footer from "../src/Components/Footer"
 import {BrowserRouter, Switch, Route} from "react-router-dom"
 import './App.css';
+import PrimeraConsulta from './Components/Forms/PrimeraConsulta';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Switch>
           <Route exact path = "/" component = {Home}/>
           <Route exact path = "/profile" component = {Profile}/>
+          <Route exa path = "/profile/primera-consulta" component={PrimeraConsulta}/>
         </Switch>
       </BrowserRouter>
 
