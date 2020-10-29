@@ -1,9 +1,11 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
+import ProfilePictureDefault from "../../../Assets/Icons/profile.png"
 
 export default function AddPet(props){
 
     {/*MASCOTA*/}
-    const initialStatePet = {name: "", kind: "", breed: "", color: "", size: "", age: "", gender: "", reproductiveStatus: "", weigth: ""};
+    const fileHidenInput = useRef("");
+    const initialStatePet = {name: "", kind: "", breed: "", color: "", size: "", age: "", gender: "", reproductiveStatus: "", weigth: "", picture:""};
     const [pet, setPet] = useState(initialStatePet);
     const [done, setDone] = useState(false);
 
@@ -17,6 +19,18 @@ export default function AddPet(props){
         setPet({
             ...pet, [e.target.name]: e.target.value
         })
+    }
+
+    {/*Imagen de la mascota */}
+    const handleImg = e => {
+        if(e.target.files.length){
+            setPet({...pet, picture:URL.createObjectURL(e.target.files[0])});
+        }
+    }
+
+    {/*Es para simular el click en el input type="file" pero personalizado (como button)*/}
+    const handleClick = e =>{
+        fileHidenInput.current.click();
     }
 
     const add = (e) => {
@@ -37,7 +51,31 @@ export default function AddPet(props){
             return(
                 <div className="p-3">
                     <h4 className="mb-5 mt-3 text-black">Mascota</h4>
-                    <div className="form-group row ww-100 mx-auto">
+                    {pet.picture ? (
+                        <div>
+                            <div className="container col-12 mx-auto">
+                                <img src={pet.picture} className="mx-auto profile-img" alt="dummy" width="100" height="100" />
+                            </div>
+                            <div className="container col-12 mx-auto">
+                                <button className="m-1 btn rounded-pill btn-success btn-sm mx-auto" onClick={handleClick}>cambiar foto</button>
+                                <input type="file" className="d-none" onChange={handleImg} ref={fileHidenInput}/>
+                            </div>
+                        </div>
+
+                        ) : (
+                        
+                            <div>
+                                <div className="container col-12 mx-auto">
+                                    <img src={ProfilePictureDefault} className="mx-auto profile-img" alt="dummy" width="100" height="100" />
+                                </div>
+                                <div className="container col-12 mx-auto">
+                                    <button className="m-1 rounded-pill btn btn-primary btn-sm mx-auto" onClick={handleClick}>Elegir foto</button>
+                                    <input type="file" className="mx-auto center btn btn-primay d-none" onChange={handleImg} ref={fileHidenInput}/>
+                                </div>
+                            </div>
+                    )}
+
+                    <div className="mt-3 form-group row w-100 mx-auto">
                         <label className= "text-black col-sm-6 col-6 col-md-5">Nombre</label>
                         <input name="name" value={pet.petName} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " required/>
                         <label className= "text-black col-sm-6 col-6 col-md-5">Especie</label>

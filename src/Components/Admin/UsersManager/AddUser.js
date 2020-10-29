@@ -1,16 +1,15 @@
 import React, { useRef, useState } from "react"
-import ProfilePictureDefault from "../../../Assets/Icons/profile.png"
 import "../../../App.css"
 import UserService from "../../Services/UserService";
 import AddPet from "../PetsManager/AddPet";
 
 export default function AddUser(){
-    const fileHidenInput = useRef("");
+    
     const [done, setDone] = useState(false);
     const [msg, setMsg] = useState("Operacion completada");
 
     {/*user*/}
-    const initialStateUser = {name:"", idCard:"", email:"", tel:"", adress:"", job:"", picture:""};
+    const initialStateUser = {name:"", idCard:"", email:"", tel:"", adress:"", job:""};
     const [user, setUser] = useState(initialStateUser);
 
     {/*MASCOTA*/}
@@ -20,12 +19,6 @@ export default function AddUser(){
     {/*Limpiar datos*/}
     const reset = () =>{
         setUser({...initialStateUser});
-    }
-
-    const handleImg = e => {
-        if(e.target.files.length){
-            setUser({...user, picture:URL.createObjectURL(e.target.files[0])});
-        }
     }
 
     {/*Guarda los input del usuario en los datos*/}
@@ -42,11 +35,7 @@ export default function AddUser(){
             setDone(true);
         }
     }
-    
-    {/*Es para simular el click en el input type="file" pero personalizado (como button)*/}
-    const handleClick = e =>{
-        fileHidenInput.current.click();
-    }
+
 
     const checkData = (e)=>{
         e.preventDefault();
@@ -89,29 +78,6 @@ export default function AddUser(){
             <div>
                 <h1 className="text-black">Agregar usuario</h1>
             </div>
-            {user.picture ? (
-                <div>
-                    <div className="container col-12 mx-auto">
-                        <img src={user.picture} className="mx-auto profile-img" alt="dummy" width="100" height="100" />
-                    </div>
-                    <div className="container col-12 mx-auto">
-                        <button className="m-1 btn rounded-pill btn-success btn-sm mx-auto" onClick={handleClick}>cambiar foto</button>
-                        <input type="file" className="d-none" onChange={handleImg} ref={fileHidenInput}/>
-                    </div>
-                </div>
-
-                ) : (
-                
-                    <div>
-                        <div className="container col-12 mx-auto">
-                            <img src={ProfilePictureDefault} className="mx-auto profile-img" alt="dummy" width="100" height="100" />
-                        </div>
-                        <div className="container col-12 mx-auto">
-                            <button className="m-1 rounded-pill btn btn-primary btn-sm mx-auto" onClick={handleClick}>Elegir foto</button>
-                            <input type="file" className="mx-auto center btn btn-primay d-none" onChange={handleImg} ref={fileHidenInput}/>
-                        </div>
-                    </div>
-            )}
 
             <div>
                 {/*DATOS user*/}
