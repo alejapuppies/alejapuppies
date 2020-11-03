@@ -2,7 +2,7 @@ import React from "react"
 
 export default function Anamnesis(){
     return(
-        <div className="border-black p-3">
+        <div className="p-3 m-3 card-shadow">
             <h4 className="mt-5 text-black">ANAMNESIS</h4>
             <div className="form-group row w-100 mx-auto">
                 <label className= "text-black col-sm-6 col-6 col-md-5">Origen</label>

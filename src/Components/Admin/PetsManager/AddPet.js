@@ -5,7 +5,7 @@ export default function AddPet(props){
 
     {/*MASCOTA*/}
     const fileHidenInput = useRef("");
-    const initialStatePet = {name: "", kind: "", breed: "", color: "", size: "", age: "", gender: "", reproductiveStatus: "", weigth: "", picture:""};
+    const initialStatePet = {name: "", kind: "", breed: "", color: "", size: "", age: "", birthday:"", gender: "", reproductiveStatus: "", weigth: "", picture:""};
     const [pet, setPet] = useState(initialStatePet);
     const [done, setDone] = useState(false);
 
@@ -41,6 +41,7 @@ export default function AddPet(props){
         }
         else{ 
             setDone(true);
+            console.log(pet);
             props.addPet(pet);
             props.setVisible(false);
             setPet(initialStatePet);
@@ -49,7 +50,7 @@ export default function AddPet(props){
     
     if(props.visible){
             return(
-                <div className="p-3">
+                <div className="p-3 card-shadow">
                     <h4 className="mb-5 mt-3 text-black">Mascota</h4>
                     {pet.picture ? (
                         <div>
@@ -88,6 +89,8 @@ export default function AddPet(props){
                         <input name="size" value={pet.size} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 "  />
                         <label className= "text-black col-sm-6 col-6 col-md-5">Edad</label>
                         <input name="age" value={pet.age} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 "  />
+                        <label className= "text-black col-sm-6 col-6 col-md-5">Fecha de cumpleaños</label>
+                        <input type="date" name="birthday" value={pet.birthday} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " />
                         <label className= "text-black col-sm-6 col-6 col-md-5">Sexo</label>
                         <input name="gender" value={pet.gender} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 "/>
                         <label className= "text-black col-sm-6 col-6 col-md-5">Estado Reproductivo</label>

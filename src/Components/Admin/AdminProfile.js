@@ -3,6 +3,7 @@ import PrimeraConsulta from "../Forms/PrimeraConsulta"
 import FormulaMedica from "../Forms/FormulaMedica"
 import AddUser from "./UsersManager/AddUser"
 import FindUser from "./UsersManager/FindUser";
+import ControlMedico from "../Forms/ControlMedico";
 
 export default function AdminProfile(props){
     const {user} = props;
@@ -36,7 +37,7 @@ export default function AdminProfile(props){
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <button className="dropdown-item"  onClick={()=> setDisplay("primera consulta")}>Primera consulta</button>
                         <button className="dropdown-item"  onClick={()=> setDisplay("formula medica")}>Formula medica</button>
-                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Consulta general</button>
+                        <button className="dropdown-item"  onClick={()=> setDisplay("control medico")}>Control Medico</button>
                         <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Buscar consulta</button>
                     </div>
                 </div>
@@ -72,6 +73,11 @@ function FormManager(props){
     else if(data == "formula medica"){
         return(
             <FormulaMedica/>
+        )
+    }
+    else if(data == "control medico"){
+        return(
+            <ControlMedico/>
         )
     }
     else if(data == "add user"){

@@ -3,7 +3,7 @@ import "../../App.css"
 
 export default function ExamenClinico(){
     return(
-        <div className="fluid-container p-3 mx-auto border-black form-horizontal">
+        <div className="m-3 fluid-container card-shadow p-3 mx-auto form-horizontal">
             {/*DATOS DEL USUARIO*/}
             <h2 className="mt-5 text-black text-center">Examen Clinico</h2>
             {/*Variables fisiologicas*/}

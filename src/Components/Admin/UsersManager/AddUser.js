@@ -81,7 +81,7 @@ export default function AddUser(){
 
             <div>
                 {/*DATOS user*/}
-                <div className=" p-3">
+                <div className="card-shadow p-3">
                     <h4 className="mt-5 text-black">Tutor</h4>
                     <div className="form-group row w-100 mx-auto">
                         <label className= "text-black col-sm-6 col-6 col-md-5">Nombre</label>

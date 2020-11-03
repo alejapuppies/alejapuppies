@@ -16,7 +16,7 @@ export default function FormulaMedica(){
     }
 
     return(
-        <div className="container mx-auto mt-5 border-black p-3">
+        <div className="container card-shadow mx-auto mt-5 p-3">
             <h1 className="text-black">Formula Medica</h1>
 
             {/*Fecha de radicacion*/}
