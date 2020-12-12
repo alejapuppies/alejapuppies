@@ -16,12 +16,12 @@ class UserService{
         })
     }
 
-    findUserById(idCard){
-        return axios.get(`${API_URL}/findUserById`,{
+    async findUserById(idCard){
+        return await axios.get(`${API_URL}/findUserById`,{
             params:{
                 id: idCard
             }
-        })
+        });
     }
 
     addUser(data){

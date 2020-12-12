@@ -1,5 +1,6 @@
 import firebase from "firebase"
 import React from "react";
+import UserService from "../Components/Services/UserService";
 
 var firebaseConfig = {
     apiKey: "AIzaSyAbr5STLmKcyJI3-pvjzZUlDmsMfMzMo4A",
@@ -25,7 +26,6 @@ export function loginWithGoogle(){
     firebase.auth().signInWithPopup(provider).then(function(result) {
         var token = result.credential.accessToken;
         var user = result.user;
-        writeUserData(user.uid, user.displayName, user.photoURL, user.email, user.phoneNumber);
 
       }).catch(function(error) {
         // Handle Errors here.
@@ -44,15 +44,4 @@ export function signOut(){
   }).catch(function(error) {
     console.log(error);
   });
-}
-
-//Database Realtime
-export const writeUserData = (id, name, photoUrl, email, phone)=> {
-  firebase.database().ref("/").child("users/").child(name + "-" + id).set({
-    id:id,
-    name: name,
-    photoUrl:photoUrl,
-    email: email,
-    phone:phone
-  })
 }

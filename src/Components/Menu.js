@@ -5,7 +5,7 @@ export default function Menu(){
 
     return(
         <nav className="navbar navbar-expand-lg menu-nav navbar-light">
-            <a className="navbar-brand text-white" href="/">Aleja Puppies</a>
+            <a className="navbar-brand text-white" href="/">Bien Animal</a>
             <button className="navbar-toggler " type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu">
                 <span className="navbar-toggler-icon"></span>
             </button>

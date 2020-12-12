@@ -59,6 +59,8 @@ export default function AddUser(){
             pets: pets
         }
 
+        setDone(false);
+
         UserService.addUser(data)
         .then(res => {
             console.log("Usuario guardado");
@@ -68,9 +70,9 @@ export default function AddUser(){
         })
         .catch(error =>{
             setDone(false);
+            setMsg("Error al guardar el usuario");
             console.log(error);
         })
-
     }
 
     return(

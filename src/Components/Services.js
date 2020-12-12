@@ -2,7 +2,7 @@ import React from "react"
 import ServicesList from "../Components/ServicesList"
 import doggy1 from "../Assets/doggy1.jpg"
 import doggy2 from "../Assets/doggy2.jpg"
-import doggy3 from "../Assets/doggy3.jpg"
+import doggy3 from "../Assets/service1.jpg"
 
 export default class Services extends React.Component{
 

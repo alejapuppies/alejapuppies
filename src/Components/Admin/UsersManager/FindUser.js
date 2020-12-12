@@ -2,51 +2,43 @@ import React, { useEffect, useState } from "react"
 import UserService from "../../Services/UserService";
 
 export default function FindUser(){
-    const [users, setUsers] = useState([]);
-    const [name, setName] = useState("");
+    const initialStateUser = {name:"", idCard:"", email:"", tel:"", adress:"", job:""};
+    const [user, setUser] = useState(initialStateUser);
+    const [id, setId] = useState("");
 
-    const findUsertByName = (name) =>{
-        UserService.findUserByName(name)
+    const findUserById = () =>{
+        UserService.findUserById(id)
         .then(res =>{
-            setUsers(res.data);
+            setUser(res.data);
         })
         .catch(error =>{
+            alert("El sistema no responde");
             console.log(error);
-        })
+        });
     }
 
-    const handleName = (e) =>{
-        setName(e.target.value);
-        findUsertByName(e.target.value);
-        //Limpiar la lista de usuarios despues de una accion con el usuario
+    const handleId = (e) =>{
+        e.persist();
+        setId(e.target.value);
     }
-    
+
     return(
         <div className="container">
             <div className="row w-100 col-12">
                 <h1 className="text-black col-12">Buscar usuario:</h1>
-                <input className="form-control col-12 col-sm-4 col-xs-4 col-md-4 mx-auto" name="name" value={name || ""} placeholder="Nombre" onChange={(name) => handleName(name)}/>
+                <input className="form-control col-12 col-sm-4 col-xs-4 col-md-4 mx-auto" name="id" placeholder="id" onChange={(e) => handleId(e)}/>
+                <button className="btn btn-primary btn-large m-3" onClick={() => findUserById()}>Buscar</button>
             </div>
             
-            {
-                users.map(data =>{
-                    {
-                        if(name != ""){
-                            return(
-                                <div className="container mt-3" key={data.idCard}>
-                                    <h1 className="text-black">{data.name}</h1>
-                                    <p className="text-black">{data.idCard}</p>
-                                    <p className="text-black">{data.email}</p>
-                                    <p className="text-black">{data.tel}</p>
-                                    <p className="text-black">{data.adress}</p>
-                                    <p className="text-black">{data.job}</p>
-                                    <p className="text-black">{data.picture}</p>
-                                </div>
-                            )
-                        }
-                    }
-                })
-            }
+            <div className="container mt-3">
+                <h1 className="text-black">{user ? user.name : ""}</h1>
+                <p className="text-black">{user ? user.idCard : ""}</p>
+                <p className="text-black">{user ? user.email : ""}</p>
+                <p className="text-black">{user ? user.tel : ""}</p>
+                <p className="text-black">{user ? user.adress : ""}</p>
+                <p className="text-black">{user ? user.job : ""}</p>
+                <p className="text-black">{user ? user.picture : ""}</p>
+            </div>
 
         </div>
     )

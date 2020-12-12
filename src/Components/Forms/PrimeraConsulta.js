@@ -60,6 +60,7 @@ export default function PrimeraConsulta(){
     }
 
     const showData = () =>{
+        console.log(user);
         console.log(pet);
     }
 
