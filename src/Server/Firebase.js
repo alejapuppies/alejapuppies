@@ -1,6 +1,4 @@
 import firebase from "firebase"
-import React from "react";
-import UserService from "../Components/Services/UserService";
 
 var firebaseConfig = {
     apiKey: "AIzaSyAbr5STLmKcyJI3-pvjzZUlDmsMfMzMo4A",

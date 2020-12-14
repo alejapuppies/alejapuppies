@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import PrimeraConsulta from "../Forms/PrimeraConsulta"
-import FormulaMedica from "../Forms/FormulaMedica"
+import FormulaMedica from "../Forms/FormulaMedica/FormulaMedica"
 import AddUser from "./UsersManager/AddUser"
 import FindUser from "./UsersManager/FindUser";
 import ControlMedico from "../Forms/ControlMedico";
@@ -32,7 +32,7 @@ export default function AdminProfile(props){
                 {/*Consultas*/}
                 <div className="dropdown m-1">
                     <button className="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Consultas
+                        Formularios
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <button className="dropdown-item"  onClick={()=> setDisplay("primera consulta")}>Primera consulta</button>
@@ -42,7 +42,7 @@ export default function AdminProfile(props){
                     </div>
                 </div>
 
-                {/*Consultas*/}
+                {/*Gerencial*/}
                 <div className="dropdown m-1">
                     <button className="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Gerencial
@@ -52,6 +52,30 @@ export default function AdminProfile(props){
                         <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Eliminar administrador</button>
                         <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Resumen economico</button>
                         <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Finanzas</button>
+                    </div>
+                </div>
+
+                {/*Facturacion*/}
+                <div className="dropdown m-1">
+                    <button className="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Facturacion
+                    </button>
+                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Generar Factura</button>
+                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Consultar Factura</button>
+                    </div>
+                </div>
+
+                {/*Inventario*/}
+                <div className="dropdown m-1">
+                    <button className="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Inventario
+                    </button>
+                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Ver inventario</button>
+                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Agregar producto</button>
+                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Eliminar producto</button>
+
                     </div>
                 </div>
 

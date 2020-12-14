@@ -39,7 +39,7 @@ export default function AddPet(props){
             setDone(false);
             console.log("error" + done);
         }
-        else{ 
+        else{
             setDone(true);
             console.log(pet);
             props.addPet(pet);

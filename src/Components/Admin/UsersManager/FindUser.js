@@ -7,8 +7,10 @@ export default function FindUser(){
     const [id, setId] = useState("");
 
     const findUserById = () =>{
+        console.log(id);
         UserService.findUserById(id)
         .then(res =>{
+            console.log(res.data);
             setUser(res.data);
         })
         .catch(error =>{
@@ -21,14 +23,14 @@ export default function FindUser(){
         e.persist();
         setId(e.target.value);
     }
-
+    
     return(
         <div className="container">
             <div className="row w-100 col-12">
-                <h1 className="text-black col-12">Buscar usuario:</h1>
+                <h1 className="text-black col-12 mx-auto">Buscar usuario:</h1>
                 <input className="form-control col-12 col-sm-4 col-xs-4 col-md-4 mx-auto" name="id" placeholder="id" onChange={(e) => handleId(e)}/>
-                <button className="btn btn-primary btn-large m-3" onClick={() => findUserById()}>Buscar</button>
             </div>
+            <button className="btn btn-primary btn-sm mt-3 mx-auto col-8 col-sm-3 col-md-3 col-xs-3" onClick={() => findUserById()}>Buscar</button>
             
             <div className="container mt-3">
                 <h1 className="text-black">{user ? user.name : ""}</h1>
@@ -39,7 +41,6 @@ export default function FindUser(){
                 <p className="text-black">{user ? user.job : ""}</p>
                 <p className="text-black">{user ? user.picture : ""}</p>
             </div>
-
         </div>
     )
 }

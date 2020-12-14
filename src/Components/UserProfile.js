@@ -10,9 +10,9 @@ export default function UserProfile(props){
 
             <section className="mt-5">
                 <div className="row w-100 mx-auto">
-                    <button className="mx-auto">Historial</button>
-                    <button className="mx-auto">Historial</button>
-                    <button className="mx-auto">Historial</button>
+                    <button className="mx-auto">Perfil</button>
+                    <button className="mx-auto">Mascotas</button>
+                    <button className="mx-auto">Consultas</button>
                     <button className="mx-auto">Historial</button>
                 </div>
             </section>
