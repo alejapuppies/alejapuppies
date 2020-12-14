@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react"
 import "../../../App.css"
 import UserService from "../../Services/UserService";
 import AddPet from "../PetsManager/AddPet";
+import Modal from "../../Modal"
 
 export default function AddUser(){
     
@@ -40,8 +41,7 @@ export default function AddUser(){
     const checkData = (e)=>{
         e.preventDefault();
         addUser(e);
-        setDone(true);  
-        
+        setDone(true);
     }
 
 
@@ -63,16 +63,19 @@ export default function AddUser(){
 
         UserService.addUser(data)
         .then(res => {
-            console.log("Usuario guardado");
-            setPets([]);
-            setDone(true);
-            reset();
+            if(res.data){
+                setMsg("Usuario guardado");
+                setPets([]);
+                setDone(true);
+                reset();
+            }else{
+                setMsg("Error inesperado, revise los datos");
+            }
         })
         .catch(error =>{
             setDone(false);
-            setMsg("Error al guardar el usuario");
-            console.log(error);
-        })
+            setMsg("No se ha podido guardar el usuario: " + error);
+        });
     }
 
     return(
@@ -131,26 +134,8 @@ export default function AddUser(){
                     <button className="m-1 mx-auto btn btn-sm btn-danger col-12 col-sm-3 col-xs-3 col-md-3" type="reset" onClick={() => reset()}>Limpiar</button>
                 </div>
             </div>
-
-            {/*Modal para informar el estado de hacer push en database*/}
-            <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog" role="document">
-                    <div className="modal-content">
-                    <div className="modal-header">
-                        <h5 className="modal-title text-black">Estado del usuario</h5>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div className="modal-body text-black">
-                        {done ? "El usuario ha sido guardado" : msg}
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={() => setDone(false)}>Cerrar</button>
-                    </div>
-                    </div>
-                </div>
-            </div>
+                        
+            <Modal title = "Estado del usuario" msg = {msg}/>
         </div>
     )
 }

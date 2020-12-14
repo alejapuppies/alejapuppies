@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FormService from "../../Services/FormService";
 import Medicamento from "./Medicamento";
+import Modal from "../../Modal"
 
 export default function FormulaMedica(){
 
@@ -8,6 +9,7 @@ export default function FormulaMedica(){
     const [form, setForm] = useState(initialStateForm);
     const [medi, setMedi] = useState([]);
     const [cont, setCont] = useState(0);
+    const [msg, setMsg] = useState("");
 
     const handleDataForm = (e) =>{
         setForm({
@@ -26,6 +28,20 @@ export default function FormulaMedica(){
         setMedi(medi.filter(item => item.name !== name));
     };
 
+    const reset = () =>{
+        setForm(initialStateForm);
+        setMedi([]);
+    }
+
+    const checkData = () =>{
+        if(form == initialStateForm || form.date == "" || form.name == "" || form.idCard == "" || form.pet == ""){
+            setMsg("Llena todos los campos");
+        }
+        else{
+            addForm();
+        }
+    }
+
     const addForm = () =>{
         let data = {
             date: form.date, 
@@ -36,10 +52,21 @@ export default function FormulaMedica(){
             breed: form.breed, 
             age: form.age, 
             weight: form.weight, 
-            obs: form.obs   
+            obs: form.obs,
+            medicines: medi
         }
 
-        FormService.addMedicalConsulting(data);
+        FormService.addMedicalConsulting(data)
+        .then(res =>{
+            if(res.data){
+                setMsg("Datos guardados");
+                reset();
+            }else{
+                setMsg("Error inesperado");
+            }
+        }).catch(error =>{
+            setMsg("No se ha podido guardar la formula medica: " + error);
+        });
     }
 
     return(
@@ -97,8 +124,8 @@ export default function FormulaMedica(){
             <div className="form-group">
                 <textarea name="obs" value={form.obs || ""} className="form-control" rows="3" onChange={e=>handleDataForm(e)}></textarea>
             </div>
-
-            <button type="submit" className="mt-5 btn btn-info mx-auto" onClick={() => addForm()}>Guardar</button>
+            <button type="submit" className="m-1 mx-auto btn btn-sm btn-success col-12 col-sm-3 col-xs-3 col-md-3" onClick={(e) => checkData(e)} data-toggle="modal" data-target="#exampleModal">Guardar</button>
+            <Modal title = "Formula medica" msg={msg}/>
         </div>
     )
 }
