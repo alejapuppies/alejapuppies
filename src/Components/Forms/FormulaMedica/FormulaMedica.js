@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import FormService from "../../Services/FormService";
 import Medicamento from "./Medicamento";
 import Modal from "../../Modal"
+import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
+import MyDocument from "../../Pdf";
 
 export default function FormulaMedica(){
 
@@ -10,6 +12,7 @@ export default function FormulaMedica(){
     const [medi, setMedi] = useState([]);
     const [cont, setCont] = useState(0);
     const [msg, setMsg] = useState("");
+    const [generate, setGenerate] = useState(false);
 
     const handleDataForm = (e) =>{
         setForm({
@@ -124,8 +127,32 @@ export default function FormulaMedica(){
             <div className="form-group">
                 <textarea name="obs" value={form.obs || ""} className="form-control" rows="3" onChange={e=>handleDataForm(e)}></textarea>
             </div>
-            <button type="submit" className="m-1 mx-auto btn btn-sm btn-success col-12 col-sm-3 col-xs-3 col-md-3" onClick={(e) => checkData(e)} data-toggle="modal" data-target="#exampleModal">Guardar</button>
+            <div className="row w-100">
+                <button type="submit" className="m-3 mx-auto btn btn-sm btn-success col-12 col-sm-4 col-xs-4 col-md-4" onClick={(e) => checkData(e)} data-toggle="modal" data-target="#exampleModal">Guardar</button>
+                <button type="button" className="m-3 mx-auto btn btn-sm btn-success col-12 col-sm-4 col-xs-4 col-md-4" onClick={(e) => setGenerate(true)} >Generar PDF</button>
+            </div>
+            <PdfManager form = {form} medi={medi} show = {generate}/>
             <Modal title = "Formula medica" msg={msg}/>
         </div>
     )
+}
+
+function PdfManager(props){
+    const form = props.form;
+    const medi = props.medi;
+    if(props.show){
+        return(
+            <div>
+                <PDFViewer width="90%" height="842pt">
+                    <MyDocument form={form} medi={medi}/>
+                </PDFViewer>
+            </div>
+        )
+    }
+    else{
+        return(
+            <div>
+            </div>
+        )
+    }
 }

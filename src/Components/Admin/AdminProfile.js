@@ -4,6 +4,8 @@ import FormulaMedica from "../Forms/FormulaMedica/FormulaMedica"
 import AddUser from "./UsersManager/AddUser"
 import FindUser from "./UsersManager/FindUser";
 import ControlMedico from "../Forms/ControlMedico";
+import { PDFViewer } from '@react-pdf/renderer';
+import MyDocument from "../Pdf"
 
 export default function AdminProfile(props){
     const {user} = props;
@@ -116,7 +118,10 @@ function FormManager(props){
     }
     else{
         return(
-            <h1 className="m-5 text-black">Selecciona una opcion</h1>
+            <div className="fluid-container">
+                <h1 className="m-5 text-black">Selecciona una opción</h1>
+            </div>
+
         )
     }
     
