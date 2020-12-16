@@ -77,11 +77,11 @@ export default function AddPet(props){
                     )}
 
                     <div className="mt-3 form-group row w-100 mx-auto">
-                        <label className= "text-black col-sm-6 col-6 col-md-5">Nombre</label>
+                        <label className= "text-black col-sm-6 col-6 col-md-5">Nombre*</label>
                         <input name="name" value={pet.petName} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " required/>
-                        <label className= "text-black col-sm-6 col-6 col-md-5">Especie</label>
+                        <label className= "text-black col-sm-6 col-6 col-md-5">Especie*</label>
                         <input name="kind" value={pet.kind} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 "/>
-                        <label className= "text-black col-sm-6 col-6 col-md-5">Raza</label>
+                        <label className= "text-black col-sm-6 col-6 col-md-5">Raza*</label>
                         <input name="breed" value={pet.breed} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 "/>
                         <label className= "text-black col-sm-6 col-6 col-md-5">Color</label>
                         <input name="color" value={pet.color} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " />
@@ -98,7 +98,10 @@ export default function AddPet(props){
                         <label className= "text-black col-sm-6 col-6 col-md-5">Peso</label>
                         <input name="weigth" value={pet.weigth} onChange={e => handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " />
                     </div>
-                    <button type="submit" className="m-1 mx-auto btn rounded-pill btn-sm btn-info col-12 col-sm-2 col-xs-2 col-md-2" onClick={(e) => add(e)}  data-toggle="modal" data-target="#exampleModal">Agregar</button>
+                    <div className="row w-100">
+                        <button type="submit" className="m-1 mx-auto btn rounded-pill btn-sm btn-info col-4 col-sm-2 col-xs-2 col-md-2" onClick={(e) => add(e)}  data-toggle="modal" data-target="#exampleModal">Agregar</button>
+                        <button type="button" className="m-1 mx-auto btn rounded-pill btn-sm btn-info col-4 col-sm-2 col-xs-2 col-md-2" onClick={(e) => props.setVisibleForm(false)}  data-toggle="modal" data-target="#exampleModal">Cancelar</button>
+                    </div>
 
                     {/*Modal para informar el estado de hacer push en database*/}
                     <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

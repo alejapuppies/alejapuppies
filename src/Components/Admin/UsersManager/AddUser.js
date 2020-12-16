@@ -3,10 +3,10 @@ import "../../../App.css"
 import UserService from "../../Services/UserService";
 import AddPet from "../PetsManager/AddPet";
 import Modal from "../../Modal"
+import findUser from "../../../Server/Firebase"
 
 export default function AddUser(){
     
-    const [done, setDone] = useState(false);
     const [msg, setMsg] = useState("Operacion completada");
 
     {/*user*/}
@@ -33,17 +33,26 @@ export default function AddUser(){
     const addPet = (pet) =>{
         if(pet.name != "" && pet.breed != ""){
             setPets([...pets, pet]);
-            setDone(true);
         }
     }
 
-
     const checkData = (e)=>{
         e.preventDefault();
-        addUser(e);
-        setDone(true);
+        if(user.idCard == "" || user.name == "" || user.tel == "") {
+            setMsg("Completa los campos obligatorios");
+        }
+        else{
+            findUser(user.idCard)
+            .then(res => {
+                if(!res.val())
+                    addUser(e);
+                else
+                    setMsg("El usuario ya existe");
+            }).catch(error =>{
+                console.log(error);
+            });
+        }
     }
-
 
     {/*Agregar el usuario*/}
     const addUser = (e) =>{
@@ -58,26 +67,21 @@ export default function AddUser(){
             picture: user.picture,
             pets: pets
         }
-
-        setDone(false);
-
+       
         UserService.addUser(data)
         .then(res => {
             if(res.data){
                 setMsg("Usuario guardado");
                 setPets([]);
-                setDone(true);
                 reset();
             }else{
                 setMsg("Error inesperado, revise los datos");
             }
         })
         .catch(error =>{
-            setDone(false);
             setMsg("No se ha podido guardar el usuario: " + error);
         });
     }
-
     return(
         <div className="container mx-auto mt-5">
             <div>
@@ -89,11 +93,11 @@ export default function AddUser(){
                 <div className="card-shadow p-3">
                     <h4 className="mt-5 text-black">Tutor</h4>
                     <div className="form-group row w-100 mx-auto">
-                        <label className= "text-black col-sm-6 col-6 col-md-5">Nombre</label>
+                        <label className= "text-black col-sm-6 col-6 col-md-5">Nombre*</label>
                         <input type="text" name="name" value={user.name || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)} required/>
-                        <label type="number" className= "text-black col-sm-6 col-6 col-md-5">Cedula</label>
+                        <label type="number" className= "text-black col-sm-6 col-6 col-md-5">Cedula*</label>
                         <input name="idCard" value={user.idCard || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)} required/>
-                        <label className= "text-black col-sm-6 col-6 col-md-5">Telefono</label>
+                        <label className= "text-black col-sm-6 col-6 col-md-5">Telefono*</label>
                         <input name="tel" value={user.tel || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)}required/>
                         <label className= "text-black col-sm-6 col-6 col-md-5">adress</label>
                         <input name="adress" value={user.adress || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)} />

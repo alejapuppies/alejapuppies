@@ -1,4 +1,5 @@
 import firebase from "firebase"
+import { useState } from "react";
 
 var firebaseConfig = {
     apiKey: "AIzaSyAbr5STLmKcyJI3-pvjzZUlDmsMfMzMo4A",
@@ -42,4 +43,8 @@ export function signOut(){
   }).catch(function(error) {
     console.log(error);
   });
+}
+
+export default function findUser(id){
+  return firebase.database().ref('/users/' + id).once("value");
 }
