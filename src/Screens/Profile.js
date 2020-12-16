@@ -1,5 +1,5 @@
 import React from "react"
-import UserProfile from "../Components/UserProfile"
+import UserProfile from "../Components/User/UserProfile"
 import AdminProfile from "../Components/Admin/AdminProfile"
 import firebase from "firebase";
 import { Redirect, Route, Switch } from "react-router-dom";

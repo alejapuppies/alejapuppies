@@ -1,6 +1,5 @@
 import React from 'react';
 import { Page, Text, View, Document, StyleSheet, Font, Image } from '@react-pdf/renderer';
-import Banner from "../../../Assets/banner.jpg"
 import Sign from "../../../Assets/Sign.PNG"
 
 //Font.register({family:"Andika New Basic", src:"https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap"});

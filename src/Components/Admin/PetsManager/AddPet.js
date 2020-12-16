@@ -100,7 +100,7 @@ export default function AddPet(props){
                     </div>
                     <div className="row w-100">
                         <button type="submit" className="m-1 mx-auto btn rounded-pill btn-sm btn-info col-4 col-sm-2 col-xs-2 col-md-2" onClick={(e) => add(e)}  data-toggle="modal" data-target="#exampleModal">Agregar</button>
-                        <button type="button" className="m-1 mx-auto btn rounded-pill btn-sm btn-info col-4 col-sm-2 col-xs-2 col-md-2" onClick={(e) => props.setVisibleForm(false)}  data-toggle="modal" data-target="#exampleModal">Cancelar</button>
+                        <button type="button" className="m-1 mx-auto btn rounded-pill btn-sm btn-danger col-4 col-sm-2 col-xs-2 col-md-2" onClick={(e) => props.setVisible(false)}>Cancelar</button>
                     </div>
 
                     {/*Modal para informar el estado de hacer push en database*/}

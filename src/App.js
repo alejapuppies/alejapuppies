@@ -1,8 +1,8 @@
 import React from 'react';
 import Home from "../src/Screens/Home"
-import Menu from "../src/Components/Menu"
+import Menu from "../src/Components/Containers/Menu"
 import Profile from "../src/Screens/Profile"
-import Footer from "../src/Components/Footer"
+import Footer from "../src/Components/Containers/Footer"
 import {BrowserRouter, Switch, Route} from "react-router-dom"
 import './App.css';
 import PrimeraConsulta from './Components/Forms/PrimeraConsulta';

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FormService from "../../Services/FormService";
 import Medicamento from "./Medicamento";
-import Modal from "../../Modal"
+import Modal from "../../Containers/Modal"
 import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
 import MyDocument from "./Pdf";
 

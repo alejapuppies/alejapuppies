@@ -1,7 +1,7 @@
 import React from "react";
-import BannerImg from "../Assets/banner.jpg"
-import BannerImg2 from "../Assets/banner2.jpg"
-import BannerImg3 from "../Assets/banner3.jpg"
+import BannerImg from "../../Assets/banner.jpg"
+import BannerImg2 from "../../Assets/banner2.jpg"
+import BannerImg3 from "../../Assets/banner3.jpg"
 
 export default function Banner(){
     return(

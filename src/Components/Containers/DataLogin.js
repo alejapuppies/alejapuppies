@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import firebase from "firebase";
-import {loginWithGoogle, signOut, isLoggedIn} from "../Server/Firebase";
+import {loginWithGoogle, signOut, isLoggedIn} from "../../Server/Firebase";
 
 export default function DataLogin(){
     const [user, setUser] = useState("");

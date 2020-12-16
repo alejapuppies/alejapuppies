@@ -2,12 +2,12 @@ import React, { useRef, useState } from "react"
 import "../../../App.css"
 import UserService from "../../Services/UserService";
 import AddPet from "../PetsManager/AddPet";
-import Modal from "../../Modal"
+import Modal from "../../Containers/Modal"
 import findUser from "../../../Server/Firebase"
 
 export default function AddUser(){
     
-    const [msg, setMsg] = useState("Operacion completada");
+    const [msg, setMsg] = useState("");
 
     {/*user*/}
     const initialStateUser = {name:"", idCard:"", email:"", tel:"", adress:"", job:""};
@@ -44,7 +44,7 @@ export default function AddUser(){
         else{
             findUser(user.idCard)
             .then(res => {
-                if(!res.val())
+                if(res.val() == null)
                     addUser(e);
                 else
                     setMsg("El usuario ya existe");
