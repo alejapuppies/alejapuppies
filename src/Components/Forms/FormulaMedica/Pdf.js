@@ -1,7 +1,7 @@
 import React from 'react';
 import { Page, Text, View, Document, StyleSheet, Font, Image } from '@react-pdf/renderer';
-import Banner from "../Assets/banner.jpg"
-import Sign from "../Assets/Sign.PNG"
+import Banner from "../../../Assets/banner.jpg"
+import Sign from "../../../Assets/Sign.PNG"
 
 //Font.register({family:"Andika New Basic", src:"https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap"});
 // Create styles
@@ -28,13 +28,16 @@ const styles = StyleSheet.create({
     marginLeft:0,
   },
   title:{
-    fontSize:20,
+    fontSize:12,
+    color:"black",
+    fontWeight:"black",
     fontStyle:"bold",
     textAlign:"justify"
   },
   text:{
     marginTop:2,
-    fontSize:15,
+    fontSize:12,
+    color:"#403c3c",
     textAlign:"justify",
     marginLeft:10,
   },
@@ -51,34 +54,29 @@ const styles = StyleSheet.create({
 const MyDocument = (props) => (
   <Document>
     <Page size="LETTER" style={styles.page}>
-      {/*Banner*/}
-      <View>
-        <Image src={Banner}/>
-      </View>
       <View style={styles.row}>
         <View style={styles.section}>
           {/*informacion*/}
           <Text style={styles.title}>Fórmula Médica</Text>
-          <View style={styles.content}>
-            <Text style={styles.text}>Paciente: {props.form.pet}</Text>
-            <Text style={styles.text}>Especie: {props.form.kind}</Text>
-            <Text style={styles.text}>Tutor(a): {props.form.name}</Text>
+          <View style={styles.content, styles.space}>
+            <Text style={styles.title}>Paciente: <Text style={styles.text}>{props.form.pet}</Text></Text>
+            <Text style={styles.title}>Especie: <Text style={styles.text}>{props.form.kind}</Text></Text>
+            <Text style={styles.title}>Tutor(a): <Text style={styles.text}>{props.form.name}</Text></Text>
           </View>
         </View>
         <View style={styles.section}>
           {/*Informacion*/}
           <Text style={styles.title}>Fecha: {props.form.date}</Text>
-          <View style={styles.content}>
-            <Text style={styles.text}>Edad: {props.form.age}</Text>
-            <Text style={styles.text}>Raza: {props.form.breed}</Text>
-            <Text style={styles.text}>Peso: {props.form.weight}</Text>
+          <View style={styles.content, styles.space}>
+            <Text style={styles.title}>Edad: <Text style={styles.text}>{props.form.age}</Text></Text>
+            <Text style={styles.title}>Raza: <Text style={styles.text}>{props.form.breed}</Text></Text>
+            <Text style={styles.title}>Peso: <Text style={styles.text}>{props.form.weight}</Text></Text>
           </View>
         </View>
       </View>
       <View style={styles.column}>
         <View style={styles.column, styles.section}>
           {/*Receta medica*/}
-          <Text style={styles.title}>Receta Médica:</Text>
           {
             props.medi.map((item,i) =>{
             return(
@@ -91,7 +89,7 @@ const MyDocument = (props) => (
         </View>
         {/*Recomendaciones*/}
         <View style={styles.column, styles.space}>
-          <Text style={styles.title}>Recomendaciones:</Text>
+          <Text style={styles.title}>RECOMENDACIONES:</Text>
           <Text style={styles.space, styles.text}>{props.form.obs}</Text>
         </View>
       </View>

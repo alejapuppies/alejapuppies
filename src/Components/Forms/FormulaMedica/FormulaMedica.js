@@ -3,7 +3,7 @@ import FormService from "../../Services/FormService";
 import Medicamento from "./Medicamento";
 import Modal from "../../Modal"
 import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
-import MyDocument from "../../Pdf";
+import MyDocument from "./Pdf";
 
 export default function FormulaMedica(){
 

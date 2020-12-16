@@ -5,7 +5,7 @@ import AddUser from "./UsersManager/AddUser"
 import FindUser from "./UsersManager/FindUser";
 import ControlMedico from "../Forms/ControlMedico";
 import { PDFViewer } from '@react-pdf/renderer';
-import MyDocument from "../Pdf"
+import MyDocument from "../Forms/FormulaMedica/Pdf"
 
 export default function AdminProfile(props){
     const {user} = props;

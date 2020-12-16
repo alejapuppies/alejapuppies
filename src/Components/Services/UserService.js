@@ -1,11 +1,12 @@
 import axios from "axios"
+import http from "../../Server/http-common"
 
 const API_URL = "https://alejapuppiesback.herokuapp.com"
 
 class UserService{
 
     getUserData(){
-        return axios.get(`${API_URL}/user`);
+        return http.get("user");
     }
 
     findUserByName(name){
