@@ -4,8 +4,7 @@ import FormulaMedica from "../Forms/FormulaMedica/FormulaMedica"
 import AddUser from "./UsersManager/AddUser"
 import FindUser from "./UsersManager/FindUser";
 import ControlMedico from "../Forms/ControlMedico";
-import { PDFViewer } from '@react-pdf/renderer';
-import MyDocument from "../Forms/FormulaMedica/Pdf"
+import AddAdmin from "./AdminManager/AddAdmin";
 
 export default function AdminProfile(props){
     const {user} = props;
@@ -50,7 +49,7 @@ export default function AdminProfile(props){
                         Gerencial
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Agregar administrador</button>
+                        <button className="dropdown-item"  onClick={()=> setDisplay("addAdmin")}>Agregar administrador</button>
                         <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Eliminar administrador</button>
                         <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Resumen economico</button>
                         <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Finanzas</button>
@@ -114,6 +113,11 @@ function FormManager(props){
     else if(data == "find user"){
         return(
             <FindUser/>
+        )
+    }
+    else if(data == "addAdmin"){
+        return(
+            <AddAdmin />
         )
     }
     else{

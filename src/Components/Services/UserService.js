@@ -1,5 +1,6 @@
 import axios from "axios"
 import http from "../../Server/http-common"
+import firebase from "firebase"
 
 const API_URL = "https://alejapuppiesback.herokuapp.com"
 
@@ -17,12 +18,12 @@ class UserService{
         })
     }
 
-    async findUserById(idCard){
-        return await axios.get(`${API_URL}/findUserById`,{
-            params:{
-                id: idCard
-            }
-        });
+    findUserById(id){
+        return firebase.database().ref('/users/' + id).once("value");
+    }
+
+    findUserByEmail(email){
+        return firebase.database().ref("users");
     }
 
     addUser(data){

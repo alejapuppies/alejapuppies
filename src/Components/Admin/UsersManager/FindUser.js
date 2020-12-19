@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import UserService from "../../Services/UserService";
-import findUser from "../../../Server/Firebase"
+import UserProfile from "../../User/UserProfile";
 
 export default function FindUser(){
     const initialStateUser = {name:"", idCard:"", email:"", tel:"", adress:"", job:""};
@@ -8,7 +8,7 @@ export default function FindUser(){
     const [id, setId] = useState("");
 
     const findUserById = () =>{
-        findUser(id)
+        UserService.findUserById(id)
         .then(res => {
             setUser(res.val());
         }).catch(error=>{
@@ -46,17 +46,7 @@ function UserManager(props){
     else if(user.idCard != ""){
         return(
             <div className="container mt-3 border-black">
-                <h1 className="text-black">{user.name}</h1>
-                <p className="text-black">{user.idCard}</p>
-                <p className="text-black">{user.email}</p>
-                <p className="text-black">{user.tel}</p>
-                <p className="text-black">{user.adress}</p>
-                <p className="text-black">{user.job}</p>
-                <p className="text-black">{user.picture}</p>
-                <div className="row w-100 mx-auto">
-                    <button className="btn btn-primary col-12 col-sm-4 col-xs-4- col-md-4 m-3 mx-auto">Editar</button>
-                    <button className="btn btn-danger col-12 col-sm-4 col-xs-4- col-md-4 m-3 mx-auto">Eliminar</button>
-                </div>
+                <UserProfile user = {user}/>
             </div>
         )
     }

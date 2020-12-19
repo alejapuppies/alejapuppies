@@ -1,20 +1,14 @@
-import React, { useRef, useState } from "react"
-import "../../../App.css"
-import UserService from "../../Services/UserService";
-import AddPet from "../PetsManager/AddPet";
-import Modal from "../../Containers/Modal"
+import React, { useState } from "react"
+import AddUser from "../Admin/UsersManager/AddUser"
+import UserService from "../Services/UserService";
+import Modal from "../Containers/Modal"
 
-export default function AddUser(){
-    
+export default function RegisterUser(props){
     const [msg, setMsg] = useState("");
 
     {/*user*/}
-    const initialStateUser = {name:"", idCard:"", email:"", tel:"", adress:"", job:""};
+    const initialStateUser = {name:props.user.displayName, idCard:"", email:props.user.email, tel:"", adress:"", job:"", picture:props.user.photoURL};
     const [user, setUser] = useState(initialStateUser);
-
-    {/*MASCOTA*/}
-    const [visibleForm, setVisibleForm] = useState(false);
-    const [pets, setPets] = useState([]);
 
     {/*Limpiar datos*/}
     const reset = () =>{
@@ -28,13 +22,6 @@ export default function AddUser(){
         });
     }
 
-    {/*Añadir mascota validada*/}
-    const addPet = (pet) =>{
-        if(pet.name != "" && pet.breed != ""){
-            setPets([...pets, pet]);
-        }
-    }
-
     const checkData = (e)=>{
         e.preventDefault();
         if(user.idCard == "" || user.name == "" || user.tel == "") {
@@ -43,7 +30,8 @@ export default function AddUser(){
         else{
             UserService.findUserById(user.idCard)
             .then(res => {
-                if(res.val() == null)
+                console.log(res.data);
+                if(res.val() == undefined || res.val() == null)
                     addUser(e);
                 else
                     setMsg("El numero de cedula ya esta en uso");
@@ -63,15 +51,13 @@ export default function AddUser(){
             tel: user.tel,
             adress: user.adress,
             job: user.job,
-            picture: user.picture,
-            pets: pets
+            picture: user.picture
         }
        
         UserService.addUser(data)
         .then(res => {
             if(res.data){
                 setMsg("Usuario guardado");
-                setPets([]);
                 reset();
             }else{
                 setMsg("Error inesperado, revise los datos");
@@ -90,7 +76,7 @@ export default function AddUser(){
             <div>
                 {/*DATOS user*/}
                 <div className="card-shadow p-3">
-                    <h4 className="mt-5 text-black">Tutor</h4>
+                    <img className="profile-img mt-3 mb-3" src = {user.picture}/>
                     <div className="form-group row w-100 mx-auto">
                         <label className= "text-black col-sm-6 col-6 col-md-5">Nombre*</label>
                         <input type="text" name="name" value={user.name || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)} required/>
@@ -101,34 +87,10 @@ export default function AddUser(){
                         <label className= "text-black col-sm-6 col-6 col-md-5">Dirección</label>
                         <input name="adress" value={user.adress || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)} />
                         <label className= "text-black col-sm-6 col-6 col-md-5">Correo</label>
-                        <input name="email" value={user.email || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)} />
+                        <input name="email" value={user.email || ""} className="form-control col-sm-6 col-6 col-md-7 " disabled/>
                         <label className= "text-black col-sm-6 col-6 col-md-5">Ocupacion</label>
                         <input name="job" value={user.job || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)}/>
-                    </div>
-
-                    
-                    <div className="mt-3 mx-auto">
-                        <div className="">
-                            <h4 className="text-black">Mascotas<button className="btn btn-sm" onClick={(e) => setVisibleForm(true)}><i className="fa fa-plus" ></i></button></h4>
-                        </div>
-                        {
-                            pets.map(p =>{
-                                return(
-                                    <div key = {p.name} className="row w-100">
-                                        <p className="text-black col-6">{p.name}</p>
-                                        <p className="text-black col-6">{p.breed}</p>
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
-                    
-                </div>
-
-
-                {/*DATOS DE LA MASCOTA*/}
-                <div>
-                    <AddPet visible = {visibleForm} setVisible = {setVisibleForm} addPet={addPet}/>      
+                    </div>                    
                 </div>
 
                 {/*Terminar*/}
@@ -138,7 +100,7 @@ export default function AddUser(){
                 </div>
             </div>
                         
-            <Modal title = "Estado del usuario" msg = {msg}/>
+            <Modal title = "Registrar usuario" msg = {msg}/>
         </div>
     )
 }

@@ -21,7 +21,6 @@ export default function DataLogin(){
             </button>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a className="dropdown-item" href="/profile">Perfil</a>
-                <a className="dropdown-item" href="#">Consultas</a>
                 <a className="dropdown-item" onClick={signOut} href="">Cerrar Sesion</a>
             </div>
         </div>

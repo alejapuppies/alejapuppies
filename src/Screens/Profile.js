@@ -1,67 +1,84 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import UserProfile from "../Components/User/UserProfile"
 import AdminProfile from "../Components/Admin/AdminProfile"
 import firebase from "firebase";
 import { Redirect, Route, Switch } from "react-router-dom";
+import UserService from "../Components/Services/UserService"
+import AdminService from "../Components/Services/AdminService";
+import RegisterUser from "../Components/User/RegisterUser";
 
-export default class Profile extends React.Component{
+export default function Profile(){
 
-    constructor(){
-        super();
-        this.state = {
-            user:null,
-            admin:null,
-            loggedIn:null
-        }
-    }
+    const [user, setUser] = useState();
+    const [userInfo, setUserInfo] = useState();
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [isLoggedIn, setLogginIn] = useState(false);
+    const [isRegistered, setIsRegistered] = useState(false);
 
-    componentDidMount(){
+    useEffect(() =>{
         firebase.auth().onAuthStateChanged(userAuth =>{
             if(userAuth){
-                var db = firebase.database();
-                var ref = db.ref("/").child("admin/").child(userAuth.displayName + "-" + userAuth.uid);
-                ref.on("value", (snapshot) =>{
-                    //Si el usuario que ingreso esta dentro de los administradores
-                    this.setState({user:userAuth, admin:snapshot.val(), loggedIn:true});
-                }, function (errorObject) {
-                    console.log("The read failed: " + errorObject.code);
+                setUser(userAuth);
+                setLogginIn(true);
+                AdminService.findAdminByEmail(userAuth.email)
+                .on("child_added", function(snapshot) {
+                    if(snapshot.child("email").val() == userAuth.email){
+                        setIsAdmin(true);
+                    }
                 });
-                var evt = document.createEvent('Event');  
-                evt.initEvent('load', false, false);  
-                window.dispatchEvent(evt);
-
+                isUserRegistered();
             }
             else{
-                this.setState({user:null, admin:false, loggedIn:false})
+                setUser(null);
+                setIsAdmin(false);
+                setLogginIn(false);
+            }
+        });
+    }, []);
+
+    function isUserRegistered(){
+        var email = firebase.auth().currentUser.email;
+        UserService.findUserByEmail(email)
+        .on("child_added", (snapshot) => {
+            if(snapshot.val().email == email){
+                setUserInfo(snapshot.val());
+                setIsRegistered(true);
             }
         });
     }
 
-    render(){
-        if(this.state.loggedIn && this.state.admin){
+    if(isLoggedIn && isAdmin){
+        return<div>
+            <AdminProfile user = {user}/>
+        </div>
+    }
+    else if(isLoggedIn && !isAdmin){
+        if(isRegistered){
             return<div>
-                <AdminProfile user = {this.state.user}/>
+                <UserProfile user = {userInfo}/>
             </div>
-        }
-        else if(this.state.loggedIn && !this.state.admin){
-            return<div>
-                <UserProfile user = {this.state.user}/>
-            </div>
-        }
-        else if(!this.state.loggedIn){
-            return<div>
-                <div className="mt-5 spinner-border text-primary" role="status">
-                    <span className="sr-only">Loading...</span>
+        }else{
+            return(
+                <div>
+                    <RegisterUser user = {firebase.auth().currentUser}/>
                 </div>
-                <h1 className="text-black">Cargando...</h1>
-                <a className="btn m-5 btn-sm btn-primary" href="/">Regresar</a>
-            </div>
-
-        }
-        else if(this.state.user == null){
-            return<div>
-                <Redirect to="/"/>
-            </div>
+            )
         }
     }
+    else if(!isLoggedIn){
+        return<div>
+            <div className="mt-5 spinner-border text-primary" role="status">
+                <span className="sr-only">Loading...</span>
+            </div>
+            <h1 className="text-black">Cargando...</h1>
+            <a className="btn m-5 btn-sm btn-primary" href="/">Regresar</a>
+        </div>
+
+    }
+    else if(user == null){
+        return<div>
+            <Redirect to="/"/>
+        </div>
+    }
+    
 }

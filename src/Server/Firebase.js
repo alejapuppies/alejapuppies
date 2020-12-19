@@ -48,3 +48,13 @@ export function signOut(){
 export default function findUser(id){
   return firebase.database().ref('/users/' + id).once("value");
 }
+
+export function updateUser(id){
+  return firebase.database().ref("/users/" + id).child("name").update({"name":"Jorgito"});
+}
+
+export function addAdmin(email){
+  return firebase.database().ref("admin/").push({
+    email:email
+  });
+}
