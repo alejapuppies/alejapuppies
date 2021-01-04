@@ -7,7 +7,7 @@ import MyDocument from "./Pdf";
 
 export default function FormulaMedica(){
 
-    const initialStateForm = {date: "", idCard: "", name: "", pet: "", kind: "", breed: "", age: "", weight:"", obs: ""}
+    const initialStateForm = {date: "", idCard: "", name: "", pet: "", kind: "", breed: "", age: "", weight:"", medi:[], obs: ""}
     const [form, setForm] = useState(initialStateForm);
     const [medi, setMedi] = useState([]);
     const [cont, setCont] = useState(0);
@@ -55,18 +55,14 @@ export default function FormulaMedica(){
             breed: form.breed, 
             age: form.age, 
             weight: form.weight, 
-            obs: form.obs,
-            medicines: medi
+            medi:medi,
+            obs: form.obs
         }
 
         FormService.addMedicalConsulting(data)
         .then(res =>{
-            if(res.data){
-                setMsg("Datos guardados");
-                reset();
-            }else{
-                setMsg("Error inesperado");
-            }
+            setMsg("Datos guardados");
+            reset();
         }).catch(error =>{
             setMsg("No se ha podido guardar la formula medica: " + error);
         });
