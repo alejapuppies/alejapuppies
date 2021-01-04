@@ -8,31 +8,33 @@ import AdminService from "../Components/Services/AdminService";
 import RegisterUser from "../Components/User/RegisterUser";
 
 export default function Profile(){
-
-    const [user, setUser] = useState();
+    
+    const [user, setUser] = useState(firebase.auth().currentUser);
     const [userInfo, setUserInfo] = useState();
     const [isAdmin, setIsAdmin] = useState(false);
     const [isLoggedIn, setLogginIn] = useState(false);
-    const [isRegistered, setIsRegistered] = useState(false);
+    const [isRegistered, setIsRegistered] = useState(UserService.isRegistered);
 
     useEffect(() =>{
         firebase.auth().onAuthStateChanged(userAuth =>{
-            if(userAuth){
-                setUser(userAuth);
-                setLogginIn(true);
-                AdminService.findAdminByEmail(userAuth.email)
-                .on("child_added", function(snapshot) {
-                    if(snapshot.child("email").val() == userAuth.email){
-                        setIsAdmin(true);
-                    }
-                });
-                isUserRegistered();
-            }
-            else{
-                setUser(null);
-                setIsAdmin(false);
-                setLogginIn(false);
-            }
+        if(userAuth){
+            UserService.setUser(userAuth);
+            setUser(userAuth);
+            setUserInfo(userAuth);
+            setLogginIn(true);
+            AdminService.findAdminByEmail(userAuth.email)
+            .on("child_added", function(snapshot) {
+                if(snapshot.child("email").val() == userAuth.email){
+                    setIsAdmin(true);
+                }
+            });
+            isUserRegistered();
+        }
+        else{
+            setUser(null);
+            setIsAdmin(false);
+            setLogginIn(false);
+        }
         });
     }, []);
 
@@ -53,17 +55,10 @@ export default function Profile(){
         </div>
     }
     else if(isLoggedIn && !isAdmin){
-        if(isRegistered){
-            return<div>
-                <UserProfile user = {userInfo}/>
-            </div>
-        }else{
-            return(
-                <div>
-                    <RegisterUser user = {firebase.auth().currentUser}/>
-                </div>
-            )
-        }
+        return<div>
+            <UserProfile user = {userInfo}/>
+        </div>
+        
     }
     else if(!isLoggedIn){
         return<div>
@@ -75,7 +70,7 @@ export default function Profile(){
         </div>
 
     }
-    else if(user == null){
+    else if(user == null || user == undefined){
         return<div>
             <Redirect to="/"/>
         </div>

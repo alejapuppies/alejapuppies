@@ -1,10 +1,12 @@
 import React , {useState} from "react"
 import DataLogin from "../../Components/Containers/DataLogin"
+import Logo from "../../Assets/doggy2.jpg"
 
 export default function Menu(){
 
     return(
-        <nav className="navbar navbar-expand-lg menu-nav navbar-light">
+        <nav className="navbar navbar-expand-lg menu-nav navbar-light menu-navbar">
+            <img className="mr-1" src = {Logo}  style = {{width:"30px", height:"30px"}}/>
             <a className="navbar-brand text-white" href="/">Bien Animal</a>
             <button className="navbar-toggler " type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu">
                 <span className="navbar-toggler-icon"></span>

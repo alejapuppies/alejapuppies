@@ -6,8 +6,15 @@ const API_URL = "https://alejapuppiesback.herokuapp.com"
 
 class UserService{
 
+    user = {}
+    isRegistered = false;
+
     getUserData(){
-        return http.get("user");
+        return this.user;
+    }
+
+    setUser(newUser){
+        this.user = newUser;
     }
 
     findUserByName(name){
@@ -16,6 +23,18 @@ class UserService{
                 name: name
             }
         })
+    }
+
+    isRegistered(email){
+        this.findUserByEmail(email)
+        .on("child_added", function(snapshot) {
+            if(snapshot.child("email").val() == email){
+                this.isRegistered = true;
+                console.log("existe");
+            }
+        });;
+
+        return this.isRegistered;
     }
 
     findUserById(id){
@@ -27,7 +46,7 @@ class UserService{
     }
 
     addUser(data){
-        return axios.post(`${API_URL}/addUser`, data);
+        return firebase.database().ref("/users/" + data.idCard).set(data);
     }
 }
 

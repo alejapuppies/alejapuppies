@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react"
 import UserService from "../../Services/UserService";
 import UserProfile from "../../User/UserProfile";
+import firebase from "firebase"
 
 export default function FindUser(){
-    const initialStateUser = {name:"", idCard:"", email:"", tel:"", adress:"", job:""};
+    const initialStateUser = {name:"", idCard:"", email:"", tel:"", adress:"", job:"", picture: "", pets:[]};
     const [user, setUser] = useState(initialStateUser);
     const [id, setId] = useState("");
 
     const findUserById = () =>{
+        setUser(initialStateUser);
         UserService.findUserById(id)
         .then(res => {
             setUser(res.val());
@@ -28,14 +30,13 @@ export default function FindUser(){
                 <input className="form-control col-12 col-sm-4 col-xs-4 col-md-4 mx-auto" name="id" placeholder="id" onChange={(e) => handleId(e)}/>
             </div>
             <button className="btn btn-primary btn-sm mt-3 mx-auto col-8 col-sm-3 col-md-3 col-xs-3" onClick={() => findUserById()}>Buscar</button>
-            <UserManager user = {user} initialStateUser = {initialStateUser} />
+            <UserManager user = {user} />
         </div>
     )
 }
 
 function UserManager(props){
     const user = props.user;
-    const initialStateUser = props.initialStateUser;
     if(user == null){
         return(
             <div className="fluid-container">

@@ -4,12 +4,12 @@ import UserService from "../../Services/UserService";
 import AddPet from "../PetsManager/AddPet";
 import Modal from "../../Containers/Modal"
 
-export default function AddUser(){
+export default function AddUser(props){
     
     const [msg, setMsg] = useState("");
 
     {/*user*/}
-    const initialStateUser = {name:"", idCard:"", email:"", tel:"", adress:"", job:""};
+    const initialStateUser = {name:"", idCard:"", email:"", tel:"", adress:"", job:"", picture:"", pets:[]};
     const [user, setUser] = useState(initialStateUser);
 
     {/*MASCOTA*/}
@@ -36,7 +36,6 @@ export default function AddUser(){
     }
 
     const checkData = (e)=>{
-        e.preventDefault();
         if(user.idCard == "" || user.name == "" || user.tel == "") {
             setMsg("Completa los campos obligatorios");
         }
@@ -48,6 +47,7 @@ export default function AddUser(){
                 else
                     setMsg("El numero de cedula ya esta en uso");
             }).catch(error =>{
+                setMsg("Error inesperado");
                 console.log(error);
             });
         }
@@ -55,27 +55,22 @@ export default function AddUser(){
 
     {/*Agregar el usuario*/}
     const addUser = (e) =>{
-        e.preventDefault();
         let data = {
-            name:user.name,
-            idCard: user.idCard,
-            email: user.email,
-            tel: user.tel,
-            adress: user.adress,
-            job: user.job,
-            picture: user.picture,
-            pets: pets
+            name:user.name, 
+            idCard:user.idCard, 
+            email:user.email, 
+            tel:user.tel, 
+            adress:user.adress, 
+            job:user.job, 
+            picture:user.picture, 
+            pets:pets
         }
-       
+
         UserService.addUser(data)
         .then(res => {
-            if(res.data){
-                setMsg("Usuario guardado");
-                setPets([]);
-                reset();
-            }else{
-                setMsg("Error inesperado, revise los datos");
-            }
+            setMsg("Usuario guardado");
+            setPets([]);
+            reset();
         })
         .catch(error =>{
             setMsg("No se ha podido guardar el usuario: " + error);
@@ -84,7 +79,7 @@ export default function AddUser(){
     return(
         <div className="container mx-auto mt-5">
             <div>
-                <h1 className="text-black">Agregar usuario</h1>
+                <h1 className="text-black">{props.title}</h1>
             </div>
 
             <div>
@@ -127,7 +122,7 @@ export default function AddUser(){
 
 
                 {/*DATOS DE LA MASCOTA*/}
-                <div>
+                <div className="mt-3">
                     <AddPet visible = {visibleForm} setVisible = {setVisibleForm} addPet={addPet}/>      
                 </div>
 

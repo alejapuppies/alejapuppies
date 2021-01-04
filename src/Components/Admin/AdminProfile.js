@@ -25,8 +25,6 @@ export default function AdminProfile(props){
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <button className="dropdown-item"  onClick={()=> setDisplay("add user")}>Agregar usuario</button>
                         <button className="dropdown-item"  onClick={()=> setDisplay("find user")}>Buscar usuario</button>
-                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Actualizar usuario</button>
-                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Eliminar usuario</button>
                     </div>
                 </div>
 
@@ -59,7 +57,7 @@ export default function AdminProfile(props){
                 {/*Facturacion*/}
                 <div className="dropdown m-1">
                     <button className="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Facturacion
+                        Facturación
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Generar Factura</button>
@@ -107,7 +105,7 @@ function FormManager(props){
     }
     else if(data == "add user"){
         return(
-            <AddUser/>
+            <AddUser title = "Agregar usuario"/>
         )
     }
     else if(data == "find user"){

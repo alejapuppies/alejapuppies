@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   color:white;
-  background-color: #d7ddf7;
+  background-color: #000;
   font-family: 'Comfortaa', cursive;
   font-display: initial;
 }
@@ -15,7 +15,7 @@
 }
 
 .background-primary{
-  background-color: #0c8ce8;
+  background-color: #76B4B0;
 }
 
 .bg-black{

@@ -45,6 +45,10 @@ export function signOut(){
   });
 }
 
+export function isLoggedIn(){
+  return firebase.auth().isLoggedIn;
+}
+
 export default function findUser(id){
   return firebase.database().ref('/users/' + id).once("value");
 }

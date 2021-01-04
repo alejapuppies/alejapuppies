@@ -72,7 +72,7 @@ export default function ControlMedico(props){
             {/*Despliega las mascotas del usuario*/}
             <div className="row w-100 col-12">
                 {
-                    user.pets.map(current =>{
+                    user && user.pets.map(current =>{
                         if(!pet){
                             return(
                                 <div className="m-3 col-12 col-sm-4 col-md-4 col-xs-4" key={current.name}>
