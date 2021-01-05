@@ -52,7 +52,7 @@ export default function ControlMedico(props){
     const findUserById = (id)=>{
         UserService.findUserById(id)
         .then(res =>{
-            setUser(res.data);
+            setUser(res.val());
         })
         .catch(error =>{
             alert("Usuario no existe");

@@ -4,8 +4,13 @@ import ProfilePictureDefault from "../../Assets/Icons/profile.png"
 import Anamnesis from "./Anamnesis"
 import ExamenClinico from "./ExamenClinico"
 import ReviewPet from "./ReviewPet"
+import FormService from "../Services/FormService"
+import Modal from "../Containers/Modal"
+import UserService from "../Services/UserService"
 
 export default function PrimeraConsulta(){
+
+    const [msg, setMsg] = useState("");
 
     {/*Es para simular el click en el input type="file" pero personalizado (como button)*/}
     const fileHidenInput = useRef("");
@@ -16,6 +21,22 @@ export default function PrimeraConsulta(){
     const [userDone, setUserDone] = useState(false);
     const [anamnesisDone, setAnamnesisDone] = useState(false);
     const [examenClinDone, setExamenClin] = useState(false);
+
+    {/*Anamnesis*/}
+    const [anamnesis, setAnamnesis] = useState("");
+    const handleAnamnesis = (e) =>{
+        setAnamnesis({
+            ...anamnesis, [e.target.name]: e.target.value
+        });
+    }
+
+    {/*Examen Clinico*/}
+    const [examen, setExamen] = useState("");
+    const handleExamen = (e) =>{
+        setExamen({
+            ...examen, [e.target.name]: e.target.value
+        });
+    }
     
     {/*user*/}
     const initialStateUser = {name:"", idCard:"", email:"", tel:"", adress:"", job:""};
@@ -41,27 +62,62 @@ export default function PrimeraConsulta(){
     {/*MASCOTA*/}
     const initialStatePet = {name: "", kind: "", breed: "", color: "", size: "", age: "", birthday:"", gender: "", reproductiveStatus: "", weigth: "", picture:""};
     const [pet, setPet] = useState(initialStatePet);
-    const [done, setDone] = useState(false);
+    const handleDataPet = (e) => {
+       setPet({
+           ...pet, [e.target.name]: e.target.value
+       })
+    }
 
     {/*Limpiar datos*/}
     const reset = () =>{
         setPet({...initialStatePet});
+        setUser({...initialStateUser});
+        setAnamnesis("");
+        setExamen("");
     }
 
-     {/*Guarda los input del usuario en la zona de mascota*/}
-    const handleDataPet = (e) => {
-        setPet({
-            ...pet, [e.target.name]: e.target.value
+    {/*Push Data*/}
+    const add = () => {
+        let dataUser = {
+            name:user.name, 
+            idCard:user.idCard, 
+            email:user.email, 
+            tel:user.tel, 
+            adress:user.adress, 
+            job:user.job,
+            pets:pet
+        }
+
+        let data = {
+            user: user,
+            pet: pet,
+            anamnesis: anamnesis,
+            examen:examen
+        }
+
+        UserService.addUser(dataUser)
+        .then(res =>{
+            FormService.addFirstConsulting(data)
+            .then(res => {
+                setMsg("Datos guardados")
+                reset();
+            })
+            .catch(error =>{
+                setMsg("Hubo un error, intente nuevamente");
+                console.log(error);
+            })
+            
+        }).catch(error =>{
+            setMsg("Hubo un error, intente nuevamente");
+            console.log(error);
         })
-    }
-
-    const add = (e) => {
-        console.log("En construccion...");
     }
 
     const showData = () =>{
         console.log(user);
         console.log(pet);
+        console.log(anamnesis);
+        console.log(examen);
     }
 
     return(
@@ -111,7 +167,7 @@ export default function PrimeraConsulta(){
                     )
                 }
                 <div className="collapse" id="anamnesisSection">
-                    <Anamnesis/>
+                    <Anamnesis handleAnamnesis = {handleAnamnesis}/>
                 </div>
             </div>
 
@@ -125,11 +181,13 @@ export default function PrimeraConsulta(){
                     )
                 }
                 <div className="collapse" id="examenClinico">
-                    <ExamenClinico/>
+                    <ExamenClinico handleExamen = {handleExamen}/>
                 </div>
             </div>
 
-            <button type="submit" className="mt-5 btn btn-large btn-info" onClick={() => showData()}>Enviar</button>
+            <button type="submit" className="mt-5 btn btn-large btn-info" onClick={() => add()} data-toggle="modal" data-target="#exampleModal">Enviar</button>                
+            <Modal title = "Primera Consulta" msg = {msg}/>
+
         </div>
     )
 }
