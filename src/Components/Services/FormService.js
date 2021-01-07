@@ -9,6 +9,10 @@ class FormService{
     addFirstConsulting(data){
         return firebase.database().ref("/firstConsultings/" + data.user.idCard).set(data);
     }
+
+    findFirstConsulting(id){
+        return firebase.database().ref("/firstConsultings/" + id);
+    }
 }
 
 export default new FormService();

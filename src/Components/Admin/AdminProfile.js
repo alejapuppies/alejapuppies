@@ -5,6 +5,8 @@ import AddUser from "./UsersManager/AddUser"
 import FindUser from "./UsersManager/FindUser";
 import ControlMedico from "../Forms/ControlMedico";
 import AddAdmin from "./AdminManager/AddAdmin";
+import Stock from "./StockManager/Stock";
+import AddProduct from "./StockManager/AddProduct";
 
 export default function AdminProfile(props){
     const {user} = props;
@@ -71,8 +73,8 @@ export default function AdminProfile(props){
                         Inventario
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Ver inventario</button>
-                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Agregar producto</button>
+                        <button className="dropdown-item"  onClick={()=> setDisplay("showStock")}>Ver inventario</button>
+                        <button className="dropdown-item"  onClick={()=> setDisplay("addProduct")}>Agregar producto</button>
                         <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Eliminar producto</button>
 
                     </div>
@@ -116,6 +118,16 @@ function FormManager(props){
     else if(data == "addAdmin"){
         return(
             <AddAdmin />
+        )
+    }
+    else if(data == "showStock"){
+        return(
+            <Stock />
+        )
+    }
+    else if(data == "addProduct"){
+        return(
+            <AddProduct />
         )
     }
     else{

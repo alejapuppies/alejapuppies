@@ -1,11 +1,25 @@
-import React, { useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import ReviewPet from "./ReviewPet"
 import ProfilePictureDefault from "../../Assets/Icons/profile.png"
 import Anamnesis from "./Anamnesis";
 import ExamenClinico from "./ExamenClinico";
 import UserService from "../Services/UserService";
+import FormService from "../Services/FormService";
 
 export default function ControlMedico(props){
+    
+    const [msg, setMsg] = useState("");
+    {/*MASCOTA*/}
+    const initialStatePet = {name: "", kind: "", breed: "", color: "", size: "", age: "", birthday:"", gender: "", reproductiveStatus: "", weigth: "", picture:""};
+    const [pet, setPet] = useState(null);
+    {/*user*/}
+    const initialStateUser = {name:"", idCard:"", email:"", tel:"", adress:"", job:"", pets:[]};
+    const [user, setUser] = useState(initialStateUser);
+    const [id, setId] = useState(-1);
+    {/*Anamnesis*/}
+    const [anamnesis, setAnamnesis] = useState("");
+    {/*Examen*/}
+    const [examen, setExamen] = useState("");
 
     {/*Es para simular el click en el input type="file" pero personalizado (como button)*/}
     const fileHidenInput = useRef("");
@@ -13,15 +27,6 @@ export default function ControlMedico(props){
         fileHidenInput.current.click();
     }
     
-    {/*MASCOTA*/}
-    const initialStatePet = {name: "", kind: "", breed: "", color: "", size: "", age: "", birthday:"", gender: "", reproductiveStatus: "", weigth: "", picture:""};
-    const [pet, setPet] = useState(null);
-
-    {/*user*/}
-    const initialStateUser = {name:"", idCard:"", email:"", tel:"", adress:"", job:"", pets:[]};
-    const [user, setUser] = useState(initialStateUser);
-    const [id, setId] = useState(-1);
-
     const handleImg = e => {
         if(e.target.files.length){
             setPet({...pet, picture:URL.createObjectURL(e.target.files[0])});
@@ -40,24 +45,44 @@ export default function ControlMedico(props){
         })
     }
 
+    const handleAnamnesis = (e) =>{
+        setAnamnesis({
+            ...anamnesis, [e.target.name]:e.target.value
+        });
+    }
+
     const dataInfo = {
         handleDataPet: handleDataPet,
-        pet:pet,
         handleImg:handleImg,
         handleClick: handleClick,
+        pet:pet,
         fileHidenInput: fileHidenInput,
         user:user
     }
 
+
     const findUserById = (id)=>{
+        //Ajustar usuario
         UserService.findUserById(id)
         .then(res =>{
             setUser(res.val());
+            //Ajustar anamnesis
+            FormService.findFirstConsulting(user.idCard).once("value", function(snapshot){
+                console.log(snapshot.val());
+                if(snapshot.val()){
+                    setAnamnesis(snapshot.val().anamnesis);
+                    setExamen(snapshot.val().examen);
+                }
+            }).then((snapshot) => {
+            }).catch(error =>{
+                console.log(error);
+            })
         })
         .catch(error =>{
-            alert("Usuario no existe");
-            setUser(initialStateUser);
-        })
+            setMsg("El usuario no existe");
+            setUser(null);
+            console.log(error);
+        });
     }
 
     return(
@@ -72,7 +97,7 @@ export default function ControlMedico(props){
             {/*Despliega las mascotas del usuario*/}
             <div className="row w-100 col-12">
                 {
-                    user && user.pets.map(current =>{
+                    user && user.pets && user.pets.map(current =>{
                         if(!pet){
                             return(
                                 <div className="m-3 col-12 col-sm-4 col-md-4 col-xs-4" key={current.name}>
@@ -95,7 +120,7 @@ export default function ControlMedico(props){
 
             {/*Muestra la informacion del usuario*/}
             <div>
-                {renderInfo(dataInfo)}
+                <RenderInfo data = {dataInfo} handleAnamnesis = {handleAnamnesis} anamnesis = {anamnesis}/>
             </div>
             
 
@@ -103,20 +128,22 @@ export default function ControlMedico(props){
     )
 }
 
-const renderInfo = (props) =>{
-    const user = props.user;
-    const handleDataPet = props.handleDataPet;
-    const pet = props.pet;
-    const handleImg = props.handleImg;
-    const handleClick = props.handleClick;
-    const fileHidenInput = props.fileHidenInput;
+//Las props llegan vacias, no esta bien implementado el UseEffect
+const RenderInfo = (props) =>{
+    const handleDataPet = props.data.handleDataPet;
+    const pet = props.data.pet;
+    const handleImg = props.data.handleImg;
+    const handleClick = props.data.handleClick;
+    const fileHidenInput = props.data.fileHidenInput;
+    const handleAnamnesis = props.handleAnamnesis;
+    const anamnesis = props.anamnesis;
 
     if(pet){
         return(
             <div>
                 <h4 className="text-black">Fecha de control(automatica)</h4>
                 <ReviewPet handleDataPet={handleDataPet} pet = {pet} handleImg = {handleImg} fileHidenInput = {fileHidenInput} handleClick = {handleClick}/>
-                <Anamnesis/>
+                <Anamnesis anamnesis = {anamnesis} handleAnamnesis = {handleAnamnesis}/>
                 <ExamenClinico/>
             </div>
         )

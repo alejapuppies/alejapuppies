@@ -9,9 +9,9 @@ export default function ReviewPet(props){
     const handleImg = props.handleImg;
     return(
         <div className="p-3 m-3 card-shadow">
-            {pet.picture ? (
+            {pet && pet.picture ? (
                 <div>
-                    <div className="container card-shadow col-12 mx-auto">
+                    <div className="container col-12 mx-auto">
                         <img src={pet.picture} className="mx-auto profile-img" alt="dummy" width="100" height="100" />
                     </div>
                     <div className="container col-12 mx-auto">

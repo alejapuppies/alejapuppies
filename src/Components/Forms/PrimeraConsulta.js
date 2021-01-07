@@ -70,8 +70,8 @@ export default function PrimeraConsulta(){
 
     {/*Limpiar datos*/}
     const reset = () =>{
-        setPet({...initialStatePet});
-        setUser({...initialStateUser});
+        setPet(initialStatePet);
+        setUser(initialStateUser);
         setAnamnesis("");
         setExamen("");
     }
