@@ -66,17 +66,6 @@ export default function ControlMedico(props){
         UserService.findUserById(id)
         .then(res =>{
             setUser(res.val());
-            //Ajustar anamnesis
-            FormService.findFirstConsulting(user.idCard).once("value", function(snapshot){
-                console.log(snapshot.val());
-                if(snapshot.val()){
-                    setAnamnesis(snapshot.val().anamnesis);
-                    setExamen(snapshot.val().examen);
-                }
-            }).then((snapshot) => {
-            }).catch(error =>{
-                console.log(error);
-            })
         })
         .catch(error =>{
             setMsg("El usuario no existe");
@@ -91,7 +80,7 @@ export default function ControlMedico(props){
             <div className="">
                 <label className="text-black mr-3 col-12">Documento de usuario</label>
                 <input className="mr-3" type="number" onChange={(e) => setId(e.target.value)}/>
-                <button className="btn btn-sm btn-primary" onClick={() => findUserById(id)}>Buscar</button>
+                <button className="btn-sm button-primary" onClick={() => findUserById(id)}>Buscar</button>
             </div>
 
             {/*Despliega las mascotas del usuario*/}
@@ -108,7 +97,7 @@ export default function ControlMedico(props){
                                             <h6 className="text-black">{current.kind}</h6>
                                             <h6 className="text-black">{current.breed}</h6>
                                             <h6 className="text-black">{current.color}</h6>
-                                            <button className="btn btn-primary" onClick={() => setPet(current)}>Seleccionar</button>
+                                            <button className="button-primary" onClick={() => setPet(current)}>Seleccionar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -145,6 +134,7 @@ const RenderInfo = (props) =>{
                 <ReviewPet handleDataPet={handleDataPet} pet = {pet} handleImg = {handleImg} fileHidenInput = {fileHidenInput} handleClick = {handleClick}/>
                 <Anamnesis anamnesis = {anamnesis} handleAnamnesis = {handleAnamnesis}/>
                 <ExamenClinico/>
+                <button className="button-primary btn-md m-3" onClick={() => console.log("En construccion")}>Guardar</button>
             </div>
         )
     }

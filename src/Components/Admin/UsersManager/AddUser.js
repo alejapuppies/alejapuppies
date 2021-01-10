@@ -128,8 +128,8 @@ export default function AddUser(props){
 
                 {/*Terminar*/}
                 <div className="row w-100 mx-auto mt-5">
-                    <button type="submit" className="m-1 mx-auto btn btn-sm btn-success col-12 col-sm-3 col-xs-3 col-md-3" onClick={(e) => checkData(e)} data-toggle="modal" data-target="#exampleModal">Guardar</button>
-                    <button className="m-1 mx-auto btn btn-sm btn-danger col-12 col-sm-3 col-xs-3 col-md-3" type="reset" onClick={() => reset()}>Limpiar</button>
+                    <button type="submit" className="m-1 mx-auto btn-sm button-primary col-12 col-sm-3 col-xs-3 col-md-3" onClick={(e) => checkData(e)} data-toggle="modal" data-target="#exampleModal">Guardar</button>
+                    <button className="m-1 mx-auto btn-sm button-secondary col-12 col-sm-3 col-xs-3 col-md-3" type="reset" onClick={() => reset()}>Limpiar</button>
                 </div>
             </div>
                         

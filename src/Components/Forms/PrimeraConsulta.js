@@ -121,23 +121,23 @@ export default function PrimeraConsulta(){
     }
 
     return(
-        <div className="container">
+        <div className="fluid-container">
             <h5 className="text-black mt-5">Fecha de la consulta: (Automatica)</h5>
             {/*DATOS DEL USUARIO*/}
             <div className="mt-5 mx-auto">
                 {
                     !userDone ? (
-                            <button className="btn btn-danger btn-block dropdown-toggle" type="button" data-toggle="collapse" data-target="#userSection" aria-expanded="false" aria-controls="userSection" onClick={() =>{if(user.name && user.idCard && user.tel && pet.name && pet.breed){setUserDone(true)}else setUserDone(false)}}>Datos Paciente</button>
+                            <button className="btn btn-danger col-12 col-sm-8 col-md-8 col-xs-8 dropdown-toggle mx-auto" type="button" data-toggle="collapse" data-target="#userSection" aria-expanded="false" aria-controls="userSection" onClick={() =>{if(user.name && user.idCard && user.tel && pet.name && pet.breed){setUserDone(true)}else setUserDone(false)}}>Datos Paciente</button>
                     ) : (
-                        <button className="btn btn-success btn-block dropdown-toggle" type="button" data-toggle="collapse" data-target="#userSection" aria-expanded="false" aria-controls="userSection" onClick={() =>{if(user.name && user.idCard && user.tel && pet.name && pet.breed){setUserDone(true)}else setUserDone(false)}}>Agregar Usuario</button>
+                        <button className="btn btn-success col-12 col-sm-8 col-md-8 col-xs-8  dropdown-toggle" type="button" data-toggle="collapse" data-target="#userSection" aria-expanded="false" aria-controls="userSection" onClick={() =>{if(user.name && user.idCard && user.tel && pet.name && pet.breed){setUserDone(true)}else setUserDone(false)}}>Agregar Usuario</button>
                     )
                 }
-                <div className="collapse p-3" id="userSection">
+                <div className="collapse" id="userSection">
                     {/*DATOS DE LA MASCOTA*/}
                     <ReviewPet handleDataPet={handleDataPet} pet =  {pet} handleImg = {handleImg} fileHidenInput = {fileHidenInput} handleClick = {handleClick}/>
                     {/*Datos del usuario*/}
-                    <div className="p-3 m-3 card-shadow">
-                        <h4 className="mt-5 text-black">Tutor</h4>
+                    <div className="mt-1 p-3 mb-3 card-shadow">
+                        <h4 className="text-black">Tutor</h4>
                         <div className="form-group row w-100 mx-auto">
                             <label className= "text-black col-sm-6 col-6 col-md-5">Nombre</label>
                             <input type="text" name="name" value={user.name || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)} required/>
@@ -161,9 +161,9 @@ export default function PrimeraConsulta(){
             <div className="mt-1 mx-auto">
                 {
                     !anamnesisDone ? (
-                        <button className="btn btn-danger btn-block dropdown-toggle" type="button" data-toggle="collapse" data-target="#anamnesisSection" aria-expanded="false" aria-controls="anamnesisSection">Anamnesis</button>
+                        <button className="btn btn-danger col-12 col-sm-8 col-md-8 col-xs-8  dropdown-toggle" type="button" data-toggle="collapse" data-target="#anamnesisSection" aria-expanded="false" aria-controls="anamnesisSection">Anamnesis</button>
                     ):(
-                        <button className="btn btn-success btn-block dropdown-toggle" type="button" data-toggle="collapse" data-target="#anamnesisSection" aria-expanded="false" aria-controls="anamnesisSection">Anamnesis</button>
+                        <button className="btn btn-success col-12 col-sm-8 col-md-8 col-xs-8  dropdown-toggle" type="button" data-toggle="collapse" data-target="#anamnesisSection" aria-expanded="false" aria-controls="anamnesisSection">Anamnesis</button>
                     )
                 }
                 <div className="collapse" id="anamnesisSection">
@@ -175,9 +175,9 @@ export default function PrimeraConsulta(){
             <div className="mt-1 mx-auto">
                 {
                     !examenClinDone ? (
-                        <button className="btn btn-danger btn-block dropdown-toggle" type="button" data-toggle="collapse" data-target="#examenClinico" aria-expanded="false" aria-controls="examenClinico">Examen clínico</button>
+                        <button className="btn btn-danger col-12 col-sm-8 col-md-8 col-xs-8  dropdown-toggle" type="button" data-toggle="collapse" data-target="#examenClinico" aria-expanded="false" aria-controls="examenClinico">Examen clínico</button>
                     ):(
-                        <button className="btn btn-success btn-block dropdown-toggle" type="button" data-toggle="collapse" data-target="#examenClinico" aria-expanded="false" aria-controls="examenClinico">Examen clínico</button>
+                        <button className="btn btn-success col-12 col-sm-8 col-md-8 col-xs-8  dropdown-toggle" type="button" data-toggle="collapse" data-target="#examenClinico" aria-expanded="false" aria-controls="examenClinico">Examen clínico</button>
                     )
                 }
                 <div className="collapse" id="examenClinico">
@@ -185,7 +185,7 @@ export default function PrimeraConsulta(){
                 </div>
             </div>
 
-            <button type="submit" className="mt-5 btn btn-large btn-info" onClick={() => add()} data-toggle="modal" data-target="#exampleModal">Enviar</button>                
+            <button type="submit" className="mt-5 button-primary btn-large" onClick={() => add()} data-toggle="modal" data-target="#exampleModal">Enviar</button>                
             <Modal title = "Primera Consulta" msg = {msg}/>
 
         </div>

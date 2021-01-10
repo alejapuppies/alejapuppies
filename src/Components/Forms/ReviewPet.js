@@ -8,11 +8,11 @@ export default function ReviewPet(props){
     const fileHidenInput = props.fileHidenInput;
     const handleImg = props.handleImg;
     return(
-        <div className="p-3 m-3 card-shadow">
+        <div className="mt-3 p-3 card-shadow">
             {pet && pet.picture ? (
                 <div>
                     <div className="container col-12 mx-auto">
-                        <img src={pet.picture} className="mx-auto profile-img" alt="dummy" width="100" height="100" />
+                        <img src={pet.picture || ProfilePictureDefault} className="mx-auto profile-img" alt="dummy" width="100" height="100" />
                     </div>
                     <div className="container col-12 mx-auto">
                         <button className="m-1 btn rounded-pill btn-success btn-sm mx-auto" onClick={handleClick}>cambiar foto</button>

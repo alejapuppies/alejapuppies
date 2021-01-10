@@ -18,6 +18,24 @@
   background-color: #76B4B0;
 }
 
+.button-primary{
+  background-color: #76B4B0;
+  color: white;
+  border:none;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button-secondary{
+  background-color: #f56358;
+  color: white;
+  border:none;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+}
+
 .bg-black{
   background-color: #000;
 }

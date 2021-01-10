@@ -52,7 +52,7 @@ export default function AddAdmin(){
                 <label className= "text-black col-sm-6 col-6 col-md-5">Rol</label>
                 <input name="rol" value={user.rol || ""} className="form-control col-sm-6 col-6 col-md-7 " onChange={e => handleDataUser(e)}/>
             </div>
-            <button className="btn btn-primary btn-sm mt-3 mx-auto col-8 col-sm-3 col-md-3 col-xs-3" onClick={() => addUser()} data-toggle="modal" data-target="#exampleModal">Agregar</button>
+            <button className="button-primary btn-sm mt-3 mx-auto col-8 col-sm-3 col-md-3 col-xs-3" onClick={() => addUser()} data-toggle="modal" data-target="#exampleModal">Agregar</button>
 
             <Modal title="Agregar administrador" msg = {msg}/>
         </div>

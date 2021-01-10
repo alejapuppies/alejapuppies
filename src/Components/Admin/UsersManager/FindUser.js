@@ -29,7 +29,7 @@ export default function FindUser(){
                 <h1 className="text-black col-12 mx-auto">Buscar usuario:</h1>
                 <input className="form-control col-12 col-sm-4 col-xs-4 col-md-4 mx-auto" name="id" placeholder="id" onChange={(e) => handleId(e)}/>
             </div>
-            <button className="btn btn-primary btn-sm mt-3 mx-auto col-8 col-sm-3 col-md-3 col-xs-3" onClick={() => findUserById()}>Buscar</button>
+            <button className="button-primary btn-sm mt-3 mx-auto col-8 col-sm-3 col-md-3 col-xs-3" onClick={() => findUserById()}>Buscar</button>
             <UserManager user = {user} />
         </div>
     )

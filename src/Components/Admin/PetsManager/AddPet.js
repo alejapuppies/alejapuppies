@@ -58,7 +58,7 @@ export default function AddPet(props){
                                 <img src={pet.picture} className="mx-auto profile-img" alt="dummy" width="100" height="100" />
                             </div>
                             <div className="container col-12 mx-auto">
-                                <button className="m-1 btn rounded-pill btn-success btn-sm mx-auto" onClick={handleClick}>cambiar foto</button>
+                                <button className="m-1 rounded-pill button-primary btn-sm mx-auto" onClick={handleClick}>cambiar foto</button>
                                 <input type="file" className="d-none" onChange={handleImg} ref={fileHidenInput}/>
                             </div>
                         </div>
@@ -70,7 +70,7 @@ export default function AddPet(props){
                                     <img src={ProfilePictureDefault} className="mx-auto profile-img" alt="dummy" width="100" height="100" />
                                 </div>
                                 <div className="container col-12 mx-auto">
-                                    <button className="m-1 rounded-pill btn btn-primary btn-sm mx-auto" onClick={handleClick}>Elegir foto</button>
+                                    <button className="m-1 rounded-pill button-primary btn-sm mx-auto" onClick={handleClick}>Elegir foto</button>
                                     <input type="file" className="mx-auto center btn btn-primay d-none" onChange={handleImg} ref={fileHidenInput}/>
                                 </div>
                             </div>

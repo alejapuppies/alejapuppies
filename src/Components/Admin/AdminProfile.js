@@ -8,6 +8,7 @@ import AddAdmin from "./AdminManager/AddAdmin";
 import Stock from "./StockManager/Stock";
 import AddProduct from "./StockManager/AddProduct";
 import RemoveProduct from "./StockManager/RemoveProduct";
+import "../../App.css"
 
 export default function AdminProfile(props){
     const {user} = props;
@@ -22,7 +23,7 @@ export default function AdminProfile(props){
             <div className = "row w-100 mx-auto">
                 {/*Usuarios*/}
                 <div className="dropdown m-1">
-                    <button className="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button className="button-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Usuarios
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -33,7 +34,7 @@ export default function AdminProfile(props){
 
                 {/*Consultas*/}
                 <div className="dropdown m-1">
-                    <button className="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button className="button-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Formularios
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -46,7 +47,7 @@ export default function AdminProfile(props){
 
                 {/*Gerencial*/}
                 <div className="dropdown m-1">
-                    <button className="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button className="button-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Gerencial
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -59,7 +60,7 @@ export default function AdminProfile(props){
 
                 {/*Facturacion*/}
                 <div className="dropdown m-1">
-                    <button className="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button className="button-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Facturación
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -70,7 +71,7 @@ export default function AdminProfile(props){
 
                 {/*Inventario*/}
                 <div className="dropdown m-1">
-                    <button className="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button className="button-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Inventario
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">

@@ -9,8 +9,8 @@ export default function Anamnesis(props){
     }
 
     return(
-        <div className="p-3 m-3 card-shadow">
-            <h4 className="mt-5 text-black">ANAMNESIS</h4>
+        <div className="mt-3 mb-3 p-3 card-shadow">
+            <h4 className="text-black">ANAMNESIS</h4>
             <div className="form-group row w-100 mx-auto">
                 <label className= "text-black col-sm-6 col-6 col-md-5">Origen</label>
                 <input name = "origen" value = { anamnesis ? anamnesis.origen : ""} onChange ={(e) => handleData(e)} className="form-control col-sm-6 col-6 col-md-7 "/>
