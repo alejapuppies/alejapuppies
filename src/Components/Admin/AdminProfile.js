@@ -7,6 +7,7 @@ import ControlMedico from "../Forms/ControlMedico";
 import AddAdmin from "./AdminManager/AddAdmin";
 import Stock from "./StockManager/Stock";
 import AddProduct from "./StockManager/AddProduct";
+import RemoveProduct from "./StockManager/RemoveProduct";
 
 export default function AdminProfile(props){
     const {user} = props;
@@ -75,7 +76,7 @@ export default function AdminProfile(props){
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <button className="dropdown-item"  onClick={()=> setDisplay("showStock")}>Ver inventario</button>
                         <button className="dropdown-item"  onClick={()=> setDisplay("addProduct")}>Agregar producto</button>
-                        <button className="dropdown-item"  onClick={()=> setDisplay("default")}>Eliminar producto</button>
+                        <button className="dropdown-item"  onClick={()=> setDisplay("removeProduct")}>Eliminar producto</button>
 
                     </div>
                 </div>
@@ -128,6 +129,11 @@ function FormManager(props){
     else if(data == "addProduct"){
         return(
             <AddProduct />
+        )
+    }
+    else if(data == "removeProduct"){
+        return(
+            <RemoveProduct />
         )
     }
     else{

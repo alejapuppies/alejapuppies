@@ -11,8 +11,8 @@ export default function Profile(){
     
     const [user, setUser] = useState(firebase.auth().currentUser);
     const [userInfo, setUserInfo] = useState();
-    const [isAdmin, setIsAdmin] = useState(false);
-    const [isLoggedIn, setLogginIn] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(null);
+    const [isLoggedIn, setLogginIn] = useState(null);
     const [isRegistered, setIsRegistered] = useState(UserService.isRegistered);
 
     useEffect(() =>{
@@ -48,8 +48,18 @@ export default function Profile(){
             }
         });
     }
+    
+    if(isLoggedIn == null && isAdmin == null){
+        return<div>
+            <div className="mt-5 spinner-border text-primary" role="status">
+                <span className="sr-only">Loading...</span>
+            </div>
+            <h1 className="text-black">Cargando...</h1>
+            <a className="btn m-5 btn-sm btn-primary" href="/">Regresar</a>
+        </div>
 
-    if(isLoggedIn && isAdmin){
+    }
+    else if(isLoggedIn && isAdmin){
         return<div>
             <AdminProfile user = {user}/>
         </div>
@@ -59,16 +69,6 @@ export default function Profile(){
             <UserProfile user = {userInfo}/>
         </div>
         
-    }
-    else if(!isLoggedIn){
-        return<div>
-            <div className="mt-5 spinner-border text-primary" role="status">
-                <span className="sr-only">Loading...</span>
-            </div>
-            <h1 className="text-black">Cargando...</h1>
-            <a className="btn m-5 btn-sm btn-primary" href="/">Regresar</a>
-        </div>
-
     }
     else if(user == null || user == undefined){
         return<div>

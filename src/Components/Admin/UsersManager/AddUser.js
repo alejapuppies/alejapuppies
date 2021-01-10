@@ -123,7 +123,7 @@ export default function AddUser(props){
 
                 {/*DATOS DE LA MASCOTA*/}
                 <div className="mt-3">
-                    <AddPet visible = {visibleForm} setVisible = {setVisibleForm} addPet={addPet}/>      
+                    <AddPet visible = {visibleForm} setVisible = {setVisibleForm} addPet={addPet}/> 
                 </div>
 
                 {/*Terminar*/}
