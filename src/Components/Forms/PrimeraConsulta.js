@@ -76,6 +76,14 @@ export default function PrimeraConsulta(){
         setExamen("");
     }
 
+    const checkData = () =>{
+        if(user.idCard == "" || user.email == "" || user.tel == ""){
+            console.log("Error");
+        }else{
+            add();
+        }
+    }
+
     {/*Push Data*/}
     const add = () => {
         let dataUser = {
@@ -185,7 +193,7 @@ export default function PrimeraConsulta(){
                 </div>
             </div>
 
-            <button type="submit" className="mt-5 button-primary btn-large" onClick={() => add()} data-toggle="modal" data-target="#exampleModal">Enviar</button>                
+            <button type="submit" className="mt-5 button-primary btn-large" onClick={() => checkData()} data-toggle="modal" data-target="#exampleModal">Enviar</button>                
             <Modal title = "Primera Consulta" msg = {msg}/>
 
         </div>

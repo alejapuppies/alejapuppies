@@ -48,6 +48,10 @@ class UserService{
     addUser(data){
         return firebase.database().ref("/users/" + data.idCard).set(data);
     }
+
+    getAllUsers(){
+        return firebase.database().ref("/users/");
+    }
 }
 
 export default new UserService();

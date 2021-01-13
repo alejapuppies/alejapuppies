@@ -9,6 +9,7 @@ import Stock from "./StockManager/Stock";
 import AddProduct from "./StockManager/AddProduct";
 import RemoveProduct from "./StockManager/RemoveProduct";
 import "../../App.css"
+import ViewUsers from "./UsersManager/ViewUsers";
 
 export default function AdminProfile(props){
     const {user} = props;
@@ -27,6 +28,7 @@ export default function AdminProfile(props){
                         Usuarios
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <button className="dropdown-item"  onClick={()=> setDisplay("viewUsers")}>Ver Usuarios</button>
                         <button className="dropdown-item"  onClick={()=> setDisplay("add user")}>Agregar usuario</button>
                         <button className="dropdown-item"  onClick={()=> setDisplay("find user")}>Buscar usuario</button>
                     </div>
@@ -105,6 +107,11 @@ function FormManager(props){
     else if(data == "control medico"){
         return(
             <ControlMedico/>
+        )
+    }
+    else if(data == "viewUsers"){
+        return(
+            <ViewUsers/>
         )
     }
     else if(data == "add user"){
