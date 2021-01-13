@@ -10,6 +10,7 @@ import RegisterUser from './Components/User/RegisterUser';
 import firebase from "firebase"
 import { PrivateRoute } from './Components/PrivateRoute';
 import UserService from './Components/Services/UserService';
+import Login from './Screens/Login';
 
 function App() {
   
@@ -40,6 +41,7 @@ function App() {
         <Switch>
           <Route exact path = "/" component = {Home}/>
           <Route exact path = "/profile" component = {Profile} user = {user}/>
+          <Route exact path = "/login" component = {Login}/>
           {/*<Route exact path = "/register" component={RegisterUser} user = {UserService.getUserData()}/>*/}
         </Switch>
       </BrowserRouter>

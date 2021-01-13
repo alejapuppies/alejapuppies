@@ -26,13 +26,15 @@ export default function AddAdmin(){
                     AdminService.addAdmin(user)
                     .then(res =>{
                         setMsg("Administrador creado");
+                        setUser(initialStateUser);
                     }).catch(error =>{
-                        setMsg(error);
+                        setMsg("Ha ocurrido un error, compruebe permisos de administrador");
+                        console.log(error);
                     })
                 }
-    
             }).catch(error =>{
-                setMsg(error);
+                setMsg("Error inesperado");
+                console.log(error);
             })
         }
     };

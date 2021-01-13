@@ -5,7 +5,6 @@ import firebase from "firebase";
 import { Redirect, Route, Switch } from "react-router-dom";
 import UserService from "../Components/Services/UserService"
 import AdminService from "../Components/Services/AdminService";
-import RegisterUser from "../Components/User/RegisterUser";
 
 export default function Profile(){
     
@@ -13,6 +12,7 @@ export default function Profile(){
     const [userInfo, setUserInfo] = useState();
     const [isAdmin, setIsAdmin] = useState(null);
     const [isLoggedIn, setLogginIn] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [isRegistered, setIsRegistered] = useState(UserService.isRegistered);
 
     useEffect(() =>{
@@ -26,13 +26,20 @@ export default function Profile(){
             .on("child_added", function(snapshot) {
                 if(snapshot.child("email").val() == userAuth.email){
                     setIsAdmin(true);
+                    AdminService.updateAdmin(userAuth, snapshot.val())
+                    .then(res =>{
+                        console.log("Actualizado");
+                    }).catch(error => {
+                        console.log(error);
+                    })
                 }
+                setLoading(false);
             });
             isUserRegistered();
         }
         else{
             setUser(null);
-            setIsAdmin(false);
+            setIsAdmin(null);
             setLogginIn(false);
         }
         });
@@ -49,7 +56,7 @@ export default function Profile(){
         });
     }
     
-    if(isLoggedIn == null && isAdmin == null){
+    if(loading){
         return<div>
             <div className="mt-5 spinner-border text-primary" role="status">
                 <span className="sr-only">Loading...</span>

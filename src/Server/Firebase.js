@@ -17,24 +17,10 @@ firebase.initializeApp(firebaseConfig);
 
 //Auth System
 var provider = new firebase.auth.GoogleAuthProvider();
-provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
 firebase.auth().useDeviceLanguage();
 
-export function loginWithGoogle(){
-
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-        var token = result.credential.accessToken;
-        var user = result.user;
-
-      }).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-      });
+export function getProvider(){
+  return provider;
 }
 
 export function signOut(){

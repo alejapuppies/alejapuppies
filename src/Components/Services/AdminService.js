@@ -18,6 +18,10 @@ class AdminService{
             rol:admin.rol
         });
     }
+
+    updateAdmin(user, admin){
+        return firebase.database().ref("/admin/" + user.uid).set(admin);
+    }
 }
 
 export default new AdminService();

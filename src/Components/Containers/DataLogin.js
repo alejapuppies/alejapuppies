@@ -17,7 +17,7 @@ export default function DataLogin(){
     if(user){
         return <div className="dropdown">
             <button className="btn btn-white float-right text-line" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {user.displayName}
+                {user.displayName || "Usuario"}
             </button>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a className="dropdown-item" href="/profile">Perfil</a>
@@ -26,6 +26,6 @@ export default function DataLogin(){
         </div>
     }
     else{
-        return <a className = "btn btn-white float-right text-line" onClick={loginWithGoogle}>Ingresar</a>
+        return <a href="/login" className = "btn btn-white float-right text-line">Ingresar</a>
     }
 }
