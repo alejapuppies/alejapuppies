@@ -11,44 +11,50 @@ import firebase from "firebase"
 import { PrivateRoute } from './Components/PrivateRoute';
 import UserService from './Components/Services/UserService';
 import Login from './Screens/Login';
+import { UserContext } from './UserContext';
+import { PrivateRouteLogin } from './Components/PrivateRouteLogin';
 
 function App() {
   
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({displayName:"Guest", email:"Undefinded"});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() =>{
     firebase.auth().onAuthStateChanged(userAuth =>{
       if(userAuth){
         setUser(userAuth);
-        UserService.setUser(userAuth);
       }
       else{
-        setUser(null);
-        UserService.setUser(null);
+        setUser({displayName:"Guest", email:"Undefined"});
       }
+      setLoading(false);
     });
-}, []);
+  }, []);
 
-  useEffect(() => {
-  })
+  if(loading){
+    return(
+      <></>
+    )
 
+  }else{
+    return (
+      <div className="App">
+        <Menu/>
+        
+        <BrowserRouter>
+          <Switch>
+            <UserContext.Provider value = {user}>
+              <Route exact path = "/" component = {Home}/>
+              <PrivateRoute exact path = "/profile" component = {Profile} user = {user}/>
+              <PrivateRouteLogin exact path = "/login" component = {Login}/>
+            </UserContext.Provider>
+          </Switch>
+        </BrowserRouter>
 
-  return (
-    <div className="App">
-      <Menu/>
-      
-      <BrowserRouter>
-        <Switch>
-          <Route exact path = "/" component = {Home}/>
-          <Route exact path = "/profile" component = {Profile} user = {user}/>
-          <Route exact path = "/login" component = {Login}/>
-          {/*<Route exact path = "/register" component={RegisterUser} user = {UserService.getUserData()}/>*/}
-        </Switch>
-      </BrowserRouter>
-
-      <Footer/>
-    </div>
-  );
+        <Footer/>
+      </div>
+    );
+  }
 }
 
 export default App;

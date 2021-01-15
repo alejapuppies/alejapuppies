@@ -1,14 +1,14 @@
-import React, { useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import GoogleIcon from "../Assets/Icons/Google.png"
 import firebase, { auth } from "firebase"
 import Modal from "../Components/Containers/Modal";
-import { getProvider } from "../Server/Firebase";
-import { Redirect } from "react-router-dom";
+import {UserContext} from "../UserContext"
 
 export default function Login(){
 
     const [info, setInfo] = useState("");
     const [msg, setMsg] = useState("");
+
 
     const loginWithGoogle = () =>{
         var provider = new firebase.auth.GoogleAuthProvider();
@@ -57,6 +57,7 @@ export default function Login(){
         <div className="fluid-container background-primary mt-5">
             <div className="card-shadow">
                 <h1 className="h1 text-black">Iniciar sesión</h1>
+                        
                 <div className="form-group col-8 mx-auto">
                     <form>
                         <label className="text-black" htmlFor="inputEmail">Correo electronico</label>
