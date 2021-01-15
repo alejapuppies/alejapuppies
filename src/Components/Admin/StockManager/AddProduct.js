@@ -4,7 +4,7 @@ import StockService from "../../Services/StockService";
 
 export default function AddProduct(){
 
-    const initialStateProduct = {name: "", units:"", price: "", unitPrice: "", finalPrice: "", packPrice:"", status: ""}
+    const initialStateProduct = {name: "", units:"", price: "", unitPrice: "", finalPrice: "", packPrice:"", status: "", date:"", provider:""}
     const [product, setProduct] = useState(initialStateProduct);
     const [msg, setMsg] = useState("");
 
@@ -46,24 +46,31 @@ export default function AddProduct(){
                     <label className="text-black">Insumo: (*)</label>
                     <input name="name" value={product.name || ""} type="text" className="form-control" onChange={(e) => handleDataProduct(e)}/>
                 </div>
-                <div className="col-10 col-sm-4 col-xs-4 col-md-4 mx-auto mt-1">
+                <div className="col-10 col-sm-3 col-xs-3 col-md-3 mx-auto mt-1">
                     <label className="text-black">Unidades:</label>
                     <input name="units" value={product.units || ""} type="text" className="form-control col-6 mx-auto" onChange={(e) => handleDataProduct(e)}/>
-                    <label className="text-black">Precio:</label>
+                    <label className="text-black mt-1">Precio:</label>
                     <input name="price" value={product.price || ""} type="text" className="form-control col-6 mx-auto" onChange={(e) => handleDataProduct(e)}/>
                 </div>
-                <div className="col-10 col-sm-4 col-xs-4 col-md-4 mx-auto mt-1">
+                <div className="col-10 col-sm-3 col-xs-3 col-md-3 mx-auto mt-1">
                     <label className="text-black">Precio Unidad:</label>
                     <input name="unitPrice" value={product.unitPrice || ""} type="text" className="form-control col-6 mx-auto" onChange={(e) => handleDataProduct(e)}/>
-                    <label className="text-black">Precio Cliente:</label>
+                    <label className="text-black mt-1">Precio Cliente:</label>
                     <input name="finalPrice" value={product.finalPrice || ""} type="text" className="form-control col-6 mx-auto" onChange={(e) => handleDataProduct(e)}/>
                 </div>
 
-                <div className="col-10 col-sm-4 col-xs-4 col-md-4 mx-auto mt-1">
+                <div className="col-10 col-sm-3 col-xs-3 col-md-3 mx-auto mt-1">
                     <label className="text-black">Precio Paquete:</label>
                     <input name="packPrice" value={product.packPrice || ""} type="text" className="form-control col-6 mx-auto" onChange={(e) => handleDataProduct(e)}/>
-                    <label className="text-black">Status:</label>
+                    <label className="text-black mt-1">Status:</label>
                     <input name="status" value={product.status || ""} type="text" className="form-control col-6 mx-auto" onChange={(e) => handleDataProduct(e)}/>
+                </div>
+
+                <div className="col-10 col-sm-3 col-xs-3 col-md-3 mx-auto mt-1">
+                    <label className="text-black">Fecha vencimiento:</label>
+                    <input type="date" name="date" value={product.date || ""} className="form-control col-6 mx-auto" onChange={(e) => handleDataProduct(e)}/>
+                    <label className="text-black mt-1">Proveedor</label>
+                    <input name="provider" value={product.provider || ""} type="text" className="form-control col-6 mx-auto" onChange={(e) => handleDataProduct(e)}/>
                 </div>
                 
             </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Page, Text, View, Document, StyleSheet, Font, Image } from '@react-pdf/renderer';
-import Sign from "../../../Assets/Sign.PNG"
+import Sign from "../../../Assets/Sign.PNG";
+import LogitoPDG from "../../../Assets/LogitoPDF.png"
 
 //Font.register({family:"Andika New Basic", src:"https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap"});
 // Create styles
@@ -10,6 +11,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     paddingLeft:15,
     paddingRight:10,
+    marginTop:"auto"
   },
   column:{
     flexDirection:"column"
@@ -28,7 +30,7 @@ const styles = StyleSheet.create({
   },
   title:{
     fontSize:12,
-    color:"black",
+    color:"#404040",
     fontWeight:"black",
     fontStyle:"bold",
     textAlign:"justify"
@@ -36,7 +38,7 @@ const styles = StyleSheet.create({
   text:{
     marginTop:2,
     fontSize:12,
-    color:"#403c3c",
+    color:"#404040",
     textAlign:"justify",
     marginLeft:10,
   },
@@ -46,6 +48,13 @@ const styles = StyleSheet.create({
     position:"absolute",
     marginLeft:"80%",
     marginTop:"auto"
+  },
+  imgLog:{
+    width:"20pt",
+    height:"80pt",
+    position:"absolute",
+    marginLeft:"50%",
+    marginTop:"auto",
   }
 });
 
@@ -94,6 +103,7 @@ const MyDocument = (props) => (
       </View>
       {/*Sign*/}
       <View>
+        <Image style={styles.imgLog} src={LogitoPDG}/>
         <Image style={styles.img} src={Sign}/>
       </View>
     </Page>

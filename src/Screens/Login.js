@@ -54,7 +54,7 @@ export default function Login(){
     }
     
     return(
-        <div className="fluid-container background-primary mt-5">
+        <div className="fluid-container background-primary">
             <div className="card-shadow">
                 <h1 className="h1 text-black">Iniciar sesión</h1>
                         

@@ -124,8 +124,8 @@ export default function FormulaMedica(){
                 <textarea name="obs" value={form.obs || ""} className="form-control" rows="3" onChange={e=>handleDataForm(e)}></textarea>
             </div>
             <div className="row w-100">
-                <button type="submit" className="m-3 mx-auto btn btn-sm btn-success col-12 col-sm-4 col-xs-4 col-md-4" onClick={(e) => checkData(e)} data-toggle="modal" data-target="#exampleModal">Guardar</button>
-                <button type="button" className="m-3 mx-auto btn btn-sm btn-success col-12 col-sm-4 col-xs-4 col-md-4" onClick={(e) => setGenerate(true)} >Generar PDF</button>
+                <button style={{backgroundColor:"#6ED493"}} type="submit" className="m-3 text-white mx-auto btn btn-sm col-12 col-sm-4 col-xs-4 col-md-4" onClick={(e) => checkData(e)} data-toggle="modal" data-target="#exampleModal">Guardar</button>
+                <button style={{backgroundColor:"#6ED493"}} type="button" className="m-3 text-white mx-auto btn btn-sm col-12 col-sm-4 col-xs-4 col-md-4" onClick={(e) => setGenerate(true)} >Generar PDF</button>
             </div>
             <PdfManager form = {form} medi={medi} show = {generate}/>
             <Modal title = "Formula medica" msg={msg}/>

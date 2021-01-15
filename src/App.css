@@ -1,13 +1,14 @@
 .App {
   text-align: center;
   color:white;
-  background-color: #000;
-  font-family: 'Comfortaa', cursive;
+  background-color: #83AED4;
+  font-family: 'Xanh Mono', monospace;
   font-display: initial;
 }
 
 .text-white{
   color:white;
+  font-size: 20px;
 }
 
 .text-black{
@@ -15,11 +16,17 @@
 }
 
 .background-primary{
-  background-color: #76B4B0;
+  background-color: #79d4ce;
+  border:none;
+}
+
+.background-secundary{
+  background-color: #6ED493;
+  border:none;
 }
 
 .button-primary{
-  background-color: #76B4B0;
+  background-color: #79d4ce;
   color: white;
   border:none;
   padding: 10px 22px;
@@ -42,7 +49,7 @@
 
 .styleHR{
   height: 2px;
-  background-color: #000;
+  background-color: #6ED493;
 }
 
 .list{
@@ -74,5 +81,5 @@
 .styled-hr{
   width: 100%;
   height: 1px;
-  background-color: black;
+  background-color: #6ED493;
 }

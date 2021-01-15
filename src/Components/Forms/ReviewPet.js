@@ -34,7 +34,7 @@ export default function ReviewPet(props){
             )}
 
             <h4 className="mb-5 mt-3 text-black">Mascota</h4>
-            <div className="form-group row ww-100 mx-auto">
+            <form className="form-group row w-100 mx-auto">
                 <label className= "text-black col-sm-6 col-6 col-md-5">Nombre</label>
                 <input name="name" value={props.pet.name} onChange={e => props.handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " required/>
                 <label className= "text-black col-sm-6 col-6 col-md-5">Especie</label>
@@ -55,7 +55,7 @@ export default function ReviewPet(props){
                 <input name="reproductiveStatus" value={props.pet.reproductiveStatus} onChange={e => props.handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " />
                 <label className= "text-black col-sm-6 col-6 col-md-5">Peso</label>
                 <input name="weigth" value={props.pet.weigth} onChange={e => props.handleDataPet(e)} className="form-control col-sm-6 col-6 col-md-7 " />
-            </div>
+            </form>
         </div>
     )
 }

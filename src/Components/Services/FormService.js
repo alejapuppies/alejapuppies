@@ -11,7 +11,7 @@ class FormService{
     }
 
     findFirstConsulting(id){
-        return firebase.database().ref("/firstConsultings/" + id);
+        return firebase.database().ref("/firstConsultings/" + id).once("value");
     }
 }
 

@@ -77,14 +77,14 @@ export default function AddUser(props){
         });
     }
     return(
-        <div className="container mx-auto mt-5">
+        <div className="container mx-auto mt-5 card-shadow">
             <div>
                 <h1 className="text-black">{props.title}</h1>
             </div>
 
             <div>
                 {/*DATOS user*/}
-                <div className="card-shadow p-3">
+                <div className="p-3">
                     <h4 className="mt-5 text-black">Tutor</h4>
                     <div className="form-group row w-100 mx-auto">
                         <label className= "text-black col-sm-6 col-6 col-md-5">Nombre*</label>
@@ -128,8 +128,8 @@ export default function AddUser(props){
 
                 {/*Terminar*/}
                 <div className="row w-100 mx-auto mt-5">
-                    <button type="submit" className="m-1 mx-auto btn-sm button-primary col-12 col-sm-3 col-xs-3 col-md-3" onClick={(e) => checkData(e)} data-toggle="modal" data-target="#exampleModal">Guardar</button>
-                    <button className="m-1 mx-auto btn-sm button-secondary col-12 col-sm-3 col-xs-3 col-md-3" type="reset" onClick={() => reset()}>Limpiar</button>
+                    <button type="submit" className="m-1 background-secundary text-light mx-auto btn-sm col-12 col-sm-3 col-xs-3 col-md-3" onClick={(e) => checkData(e)} data-toggle="modal" data-target="#exampleModal">Guardar</button>
+                    <button className="m-1 mx-auto btn-sm background-secundary text-light col-12 col-sm-3 col-xs-3 col-md-3" type="reset" onClick={() => reset()}>Limpiar</button>
                 </div>
             </div>
                         

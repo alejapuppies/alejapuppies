@@ -17,10 +17,6 @@ export default function AdminProfile(props){
 
     return(
         <div className="fluid-container bg-light pt-5 pb-5 pl-1 pr-1">
-            <img src={user.photoURL} className = "profile-img"></img>
-            <h1 className = "d-4 text-black">{user.displayName}</h1>
-            <span className="text-black">{user.email}</span>
-            <hr className="styled-hr"/>
             <div className = "row w-100 mx-auto">
                 {/*Usuarios*/}
                 <div className="dropdown m-1">

@@ -1,7 +1,6 @@
 .menu-nav{
-    background-color: #76b4b0;
+    background-color: #79d4ce;
     color: white;
-    font-weight: bold;
 }
 
 .icon-toggle{
@@ -10,9 +9,24 @@
 }
 
 .slogan{
-    background-color: #76b4b0;
+    background-color: #79d4ce;
 }
 
 .background-primary{
-    background-color: #76b4b0;
+    background-color: #79d4ce;
+}
+
+.menu-bar{
+    list-style-type: none;
+    list-style: none;
+    text-decoration: none;
+    margin-left:auto;
+}
+
+.menu-item{
+    color:white;
+}
+
+.menu-item:hover{
+    color:red;
 }

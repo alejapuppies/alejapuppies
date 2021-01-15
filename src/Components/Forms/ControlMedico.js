@@ -35,6 +35,8 @@ export default function ControlMedico(props){
 
     {/*Limpiar datos*/}
     const reset = () =>{
+        setUser({...initialStateUser});
+        setAnamnesis(null);
         setPet({...initialStatePet});
     }
 
@@ -51,13 +53,18 @@ export default function ControlMedico(props){
         });
     }
 
+    const checkData = () =>{
+        
+    }
+
     const dataInfo = {
         handleDataPet: handleDataPet,
         handleImg:handleImg,
         handleClick: handleClick,
+        checkData: checkData,
         pet:pet,
         fileHidenInput: fileHidenInput,
-        user:user
+        user:user,
     }
 
 
@@ -66,6 +73,11 @@ export default function ControlMedico(props){
         UserService.findUserById(id)
         .then(res =>{
             setUser(res.val());
+            //Ajustar anamnesis
+            FormService.findFirstConsulting(id)
+            .then(res => {
+                setAnamnesis(res.val().anamnesis);
+            }).catch(error => console.log(error))
         })
         .catch(error =>{
             setMsg("El usuario no existe");
@@ -111,8 +123,6 @@ export default function ControlMedico(props){
             <div>
                 <RenderInfo data = {dataInfo} handleAnamnesis = {handleAnamnesis} anamnesis = {anamnesis}/>
             </div>
-            
-
         </div>
     )
 }
@@ -126,6 +136,7 @@ const RenderInfo = (props) =>{
     const fileHidenInput = props.data.fileHidenInput;
     const handleAnamnesis = props.handleAnamnesis;
     const anamnesis = props.anamnesis;
+    const checkData = props.checkData;
 
     if(pet){
         return(
@@ -133,8 +144,8 @@ const RenderInfo = (props) =>{
                 <h4 className="text-black">Fecha de control(automatica)</h4>
                 <ReviewPet handleDataPet={handleDataPet} pet = {pet} handleImg = {handleImg} fileHidenInput = {fileHidenInput} handleClick = {handleClick}/>
                 <Anamnesis anamnesis = {anamnesis} handleAnamnesis = {handleAnamnesis}/>
+                <button className="button-primary btn-md m-3" onClick={() => checkData()}>Guardar</button>
                 <ExamenClinico/>
-                <button className="button-primary btn-md m-3" onClick={() => console.log("En construccion")}>Guardar</button>
             </div>
         )
     }

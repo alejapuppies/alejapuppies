@@ -22,7 +22,7 @@ export default function Medicamento(props){
 
     return(
         <div>
-            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            <button type="button" className="btn text-white" style={{backgroundColor:"#6ED493"}} data-toggle="modal" data-target="#exampleModalCenter">
             Agregar Medicamento
             </button>
 

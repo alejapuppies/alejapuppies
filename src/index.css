@@ -1,9 +1,7 @@
 body {
   margin: 0;
-  font-family: 'Londrina Solid', cursive;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: gray;
+  font-family: 'Xanh Mono', monospace;
+  background-color: black;
 }
 
 code {

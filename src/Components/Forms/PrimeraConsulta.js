@@ -135,9 +135,9 @@ export default function PrimeraConsulta(){
             <div className="mt-5 mx-auto">
                 {
                     !userDone ? (
-                            <button className="btn btn-danger col-12 col-sm-8 col-md-8 col-xs-8 dropdown-toggle mx-auto" type="button" data-toggle="collapse" data-target="#userSection" aria-expanded="false" aria-controls="userSection" onClick={() =>{if(user.name && user.idCard && user.tel && pet.name && pet.breed){setUserDone(true)}else setUserDone(false)}}>Datos Paciente</button>
+                            <button style={{backgroundColor:"#83AED4"}} className="btn col-12 col-sm-8 col-md-8 col-xs-8 dropdown-toggle mx-auto" type="button" data-toggle="collapse" data-target="#userSection" aria-expanded="false" aria-controls="userSection" onClick={() =>{if(user.name && user.idCard && user.tel && pet.name && pet.breed){setUserDone(true)}else setUserDone(false)}}>Datos Paciente</button>
                     ) : (
-                        <button className="btn btn-success col-12 col-sm-8 col-md-8 col-xs-8  dropdown-toggle" type="button" data-toggle="collapse" data-target="#userSection" aria-expanded="false" aria-controls="userSection" onClick={() =>{if(user.name && user.idCard && user.tel && pet.name && pet.breed){setUserDone(true)}else setUserDone(false)}}>Agregar Usuario</button>
+                        <button style={{backgroundColor:"#6ED493"}} className="btn col-12 col-sm-8 col-md-8 col-xs-8  dropdown-toggle" type="button" data-toggle="collapse" data-target="#userSection" aria-expanded="false" aria-controls="userSection" onClick={() =>{if(user.name && user.idCard && user.tel && pet.name && pet.breed){setUserDone(true)}else setUserDone(false)}}>Agregar Usuario</button>
                     )
                 }
                 <div className="collapse" id="userSection">
@@ -169,9 +169,9 @@ export default function PrimeraConsulta(){
             <div className="mt-1 mx-auto">
                 {
                     !anamnesisDone ? (
-                        <button className="btn btn-danger col-12 col-sm-8 col-md-8 col-xs-8  dropdown-toggle" type="button" data-toggle="collapse" data-target="#anamnesisSection" aria-expanded="false" aria-controls="anamnesisSection">Anamnesis</button>
+                        <button style={{backgroundColor:"#83AED4"}} className="btn col-12 col-sm-8 col-md-8 col-xs-8  dropdown-toggle" type="button" data-toggle="collapse" data-target="#anamnesisSection" aria-expanded="false" aria-controls="anamnesisSection">Anamnesis</button>
                     ):(
-                        <button className="btn btn-success col-12 col-sm-8 col-md-8 col-xs-8  dropdown-toggle" type="button" data-toggle="collapse" data-target="#anamnesisSection" aria-expanded="false" aria-controls="anamnesisSection">Anamnesis</button>
+                        <button style={{backgroundColor:"#6ED493"}} className="btn col-12 col-sm-8 col-md-8 col-xs-8  dropdown-toggle" type="button" data-toggle="collapse" data-target="#anamnesisSection" aria-expanded="false" aria-controls="anamnesisSection">Anamnesis</button>
                     )
                 }
                 <div className="collapse" id="anamnesisSection">
@@ -183,9 +183,9 @@ export default function PrimeraConsulta(){
             <div className="mt-1 mx-auto">
                 {
                     !examenClinDone ? (
-                        <button className="btn btn-danger col-12 col-sm-8 col-md-8 col-xs-8  dropdown-toggle" type="button" data-toggle="collapse" data-target="#examenClinico" aria-expanded="false" aria-controls="examenClinico">Examen clínico</button>
+                        <button style={{backgroundColor:"#83AED4"}} className="btn col-12 col-sm-8 col-md-8 col-xs-8  dropdown-toggle" type="button" data-toggle="collapse" data-target="#examenClinico" aria-expanded="false" aria-controls="examenClinico">Examen clínico</button>
                     ):(
-                        <button className="btn btn-success col-12 col-sm-8 col-md-8 col-xs-8  dropdown-toggle" type="button" data-toggle="collapse" data-target="#examenClinico" aria-expanded="false" aria-controls="examenClinico">Examen clínico</button>
+                        <button style={{backgroundColor:"#6ED493"}} className="btn col-12 col-sm-8 col-md-8 col-xs-8  dropdown-toggle" type="button" data-toggle="collapse" data-target="#examenClinico" aria-expanded="false" aria-controls="examenClinico">Examen clínico</button>
                     )
                 }
                 <div className="collapse" id="examenClinico">

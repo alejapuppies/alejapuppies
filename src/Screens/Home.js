@@ -9,9 +9,6 @@ export default class Home extends React.Component{
         return(
             <div className="fluid-container">
                 <Banner/>
-                <Separator name = {"Servicios"}/>
-                <Services/>
-                <Separator name = {"Consultas"}/>
             </div>
         )
     }
