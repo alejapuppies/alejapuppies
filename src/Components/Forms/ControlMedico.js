@@ -5,6 +5,7 @@ import Anamnesis from "./Anamnesis";
 import ExamenClinico from "./ExamenClinico";
 import UserService from "../Services/UserService";
 import FormService from "../Services/FormService";
+import FileManager from "../Services/FileManager";
 
 export default function ControlMedico(props){
     
@@ -12,6 +13,8 @@ export default function ControlMedico(props){
     {/*MASCOTA*/}
     const initialStatePet = {name: "", kind: "", breed: "", color: "", size: "", age: "", birthday:"", gender: "", reproductiveStatus: "", weigth: "", picture:""};
     const [pet, setPet] = useState(null);
+    const [url, setUrl] = useState("");
+
     {/*user*/}
     const initialStateUser = {name:"", idCard:"", email:"", tel:"", adress:"", job:"", pets:[]};
     const [user, setUser] = useState(initialStateUser);
@@ -103,7 +106,7 @@ export default function ControlMedico(props){
                             return(
                                 <div className="m-3 col-12 col-sm-4 col-md-4 col-xs-4" key={current.name}>
                                     <div className="card p-3">
-                                        <img className="mx-auto profile-img" src={current.picture ? current.picture : ProfilePictureDefault}/>
+                                        <img className="mx-auto profile-img" src={current.urlPic ? current.urlPic : ProfilePictureDefault}/>
                                         <div className="card-body">
                                             <strong className="h-6 text-black card-title">{current.name}</strong>
                                             <h6 className="text-black">{current.kind}</h6>

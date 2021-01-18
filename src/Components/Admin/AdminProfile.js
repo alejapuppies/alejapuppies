@@ -16,7 +16,7 @@ export default function AdminProfile(props){
     const [display, setDisplay] = useState("default");
 
     return(
-        <div className="fluid-container bg-light pt-5 pb-5 pl-1 pr-1">
+        <div className="fluid-container bg-light pt-1 pb-5 pl-1 pr-1">
             <div className = "row w-100 mx-auto">
                 {/*Usuarios*/}
                 <div className="dropdown m-1">

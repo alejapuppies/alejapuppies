@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import UserService from "../../Services/UserService";
 
 export default function ViewUsers(){
-    const [users, setUsers] = useState([]);
+    const [users, setUsers] = useState();
 
     useEffect(() =>{
         retrieveUsers();
@@ -47,7 +47,7 @@ export default function ViewUsers(){
                                     <td>{user.tel}</td>
                                     <td>
                                         {
-                                            user.pets && user.pets.map((pet,j) =>{
+                                            user.pets.map((pet,j) =>{
                                                 return(
                                                     <div key={j}>
                                                         <h6 className="text-black">{pet.name}</h6>

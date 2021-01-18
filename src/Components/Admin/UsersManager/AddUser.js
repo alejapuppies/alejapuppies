@@ -3,13 +3,14 @@ import "../../../App.css"
 import UserService from "../../Services/UserService";
 import AddPet from "../PetsManager/AddPet";
 import Modal from "../../Containers/Modal"
+import FileManager from "../../Services/FileManager";
 
 export default function AddUser(props){
     
     const [msg, setMsg] = useState("");
 
     {/*user*/}
-    const initialStateUser = {name:"", idCard:"", email:"", tel:"", adress:"", job:"", picture:"", pets:[]};
+    const initialStateUser = {name:"", idCard:"", email:"", tel:"", adress:"", job:"", pets:[]};
     const [user, setUser] = useState(initialStateUser);
 
     {/*MASCOTA*/}
@@ -43,7 +44,7 @@ export default function AddUser(props){
             UserService.findUserById(user.idCard)
             .then(res => {
                 if(res.val() == null)
-                    addUser(e);
+                    uploadImages();
                 else
                     setMsg("El numero de cedula ya esta en uso");
             }).catch(error =>{
@@ -54,15 +55,33 @@ export default function AddUser(props){
     }
 
     {/*Agregar el usuario*/}
-    const addUser = (e) =>{
+    const uploadImages = () =>{
+        pets.map((pet,i) =>{
+            console.log("tiene");
+            FileManager.uploadPicture(pet.picture, user.idCard, pet.name)
+            .then(res => {
+                setMsg("Imagenes cargadas");                
+            }).catch(error => console.log(error));
+
+            FileManager.getReferenceImg("/pets", user.idCard, pet.name).getDownloadURL()
+            .then((url)=>{
+                var petsCopy = pets;
+                petsCopy[i].urlPic = url;
+                setPets(petsCopy);
+                sendUser();
+                
+            }).catch(error => console.log(error));
+        });
+    }
+
+    const sendUser = () => {
         let data = {
             name:user.name, 
             idCard:user.idCard, 
             email:user.email, 
             tel:user.tel, 
             adress:user.adress, 
-            job:user.job, 
-            picture:user.picture, 
+            job:user.job,
             pets:pets
         }
 
@@ -76,6 +95,7 @@ export default function AddUser(props){
             setMsg("No se ha podido guardar el usuario: " + error);
         });
     }
+
     return(
         <div className="container mx-auto mt-5 card-shadow">
             <div>

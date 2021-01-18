@@ -1,11 +1,12 @@
 import React, { useRef, useState } from "react"
 import ProfilePictureDefault from "../../../Assets/Icons/profile.png"
+import FileManager from "../../Services/FileManager";
 
 export default function AddPet(props){
 
     {/*MASCOTA*/}
     const fileHidenInput = useRef("");
-    const initialStatePet = {name: "", kind: "", breed: "", color: "", size: "", age: "", birthday:"", gender: "", reproductiveStatus: "", weigth: "", picture:""};
+    const initialStatePet = {name: "", kind: "", breed: "", color: "", size: "", age: "", birthday:"", gender: "", reproductiveStatus: "", weigth: "", picture:"", urlPic:""};
     const [pet, setPet] = useState(initialStatePet);
     const [done, setDone] = useState(false);
 
@@ -24,7 +25,7 @@ export default function AddPet(props){
     {/*Imagen de la mascota */}
     const handleImg = e => {
         if(e.target.files.length){
-            setPet({...pet, picture:URL.createObjectURL(e.target.files[0])});
+            setPet({...pet, picture:e.target.files[0]});
         }
     }
 
@@ -55,7 +56,7 @@ export default function AddPet(props){
                     {pet.picture ? (
                         <div>
                             <div className="container col-12 mx-auto">
-                                <img src={pet.picture} className="mx-auto profile-img" alt="dummy" width="100" height="100" />
+                                <img src={URL.createObjectURL(pet.picture)} className="mx-auto profile-img" alt="dummy" width="100" height="100" />
                             </div>
                             <div className="container col-12 mx-auto">
                                 <button className="m-1 rounded-pill button-primary btn-sm mx-auto" onClick={handleClick}>cambiar foto</button>
